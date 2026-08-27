@@ -275,6 +275,38 @@ h1,h2,h3{letter-spacing:-.035em;line-height:1.28;font-weight:800;}
 .n-ic{width:15px;height:15px;background:var(--naver);color:#fff;font-size:9px;font-weight:800;
   display:flex;align-items:center;justify-content:center;margin-right:6px;}
 
+/* ══════ 경력 : 수상 현장 밴드 ══════ */
+.creds-band{
+  position:relative;width:100%;margin:34px 0 4px;overflow:hidden;
+  aspect-ratio:1080/1078;max-height:560px;
+}
+.creds-band .ph{
+  position:absolute;inset:0;
+  background-image:url('https://github.com/songshop-ms/songshop_formen/blob/main/prize.png?raw=true');
+  background-size:cover;background-position:center 18%;background-repeat:no-repeat;
+  filter:grayscale(.34) contrast(1.04);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 0%,#000 20%,#000 62%,rgba(0,0,0,0) 100%);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 0%,#000 20%,#000 62%,rgba(0,0,0,0) 100%);
+}
+.creds-band .ph::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,
+    rgba(17,18,20,.62) 0%,rgba(17,18,20,.24) 30%,rgba(17,18,20,.34) 62%,rgba(17,18,20,.92) 100%);
+}
+.creds-band .stamp{
+  position:absolute;left:0;bottom:14px;z-index:2;
+  display:flex;align-items:center;gap:10px;
+  font-size:.66rem;letter-spacing:.2em;font-weight:800;color:var(--brass);
+}
+.creds-band .stamp em{
+  font-style:normal;font-size:.72rem;letter-spacing:.02em;font-weight:400;
+  color:rgba(255,255,255,.55);
+}
+@media(min-width:768px){
+  .creds-band{aspect-ratio:auto;height:430px;margin-top:40px;}
+  .creds-band .ph{background-position:center 22%;}
+}
+
 /* ══════ 경력 ══════ */
 .stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-d);
   border-bottom:1px solid var(--line-d);padding:22px 0;margin-bottom:6px;}
@@ -638,7 +670,12 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
     <h2 class="h-sec">이 얼굴을 누가 만지는가.</h2>
     <p class="lede">잠실 본점과 강릉 매장 모두 원장이 직접 시술합니다. 상담자와 시술자가 다르지 않습니다.</p>
 
-    <div class="stats" style="margin-top:30px;">
+    <div class="creds-band">
+      <div class="ph" role="img" aria-label="대만·일본 국제 반영구 대회 수상 현장"></div>
+      <div class="stamp">수상 현장 <em>대만 · 일본 국제 반영구 대회</em></div>
+    </div>
+
+    <div class="stats">
       <div class="stat"><span class="num" data-target="7">0<i>년+</i></span><p>시술 경력</p></div>
       <div class="stat"><span class="num" data-target="3000">0<i>+</i></span><p>누적 시술</p></div>
     </div>
