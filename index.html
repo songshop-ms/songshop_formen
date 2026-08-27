@@ -174,23 +174,42 @@ h1,h2,h3{letter-spacing:-.035em;line-height:1.28;font-weight:800;}
   .hero-in{padding-bottom:17vh;}
 }
 
-/* ══════ 문제 ══════ */
-.prob-list{margin-top:36px;border-top:1px solid var(--line-d);}
-.prob{
-  display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;
-  padding:22px 2px;border-bottom:1px solid var(--line-d);
+/* ══════ 증거 : 눈썹 쓸기 영상 ══════ */
+.proof{display:grid;grid-template-columns:1fr;gap:26px;margin-top:32px;align-items:start;}
+@media(min-width:860px){ .proof{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;} }
+.proof-media{position:relative;background:#000;overflow:hidden;}
+.proof-media video{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;}
+.proof-badge{
+  position:absolute;top:12px;left:12px;z-index:3;display:flex;align-items:center;gap:7px;
+  background:rgba(0,0,0,.6);backdrop-filter:blur(4px);color:#fff;
+  font-size:.66rem;font-weight:800;letter-spacing:.16em;padding:6px 11px;
 }
-.prob .mm{
-  font-size:.66rem;font-weight:800;letter-spacing:.06em;color:var(--brass);
-  padding-top:5px;
+.proof-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--brass);
+  animation:live 1.6s ease-in-out infinite;}
+@keyframes live{0%,100%{opacity:1;}50%{opacity:.25;}}
+.proof-cap{
+  margin-top:10px;font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.6;
+  display:flex;gap:7px;align-items:flex-start;
 }
-.prob h3{font-size:1.06rem;margin-bottom:5px;}
-.prob p{font-size:.9rem;color:rgba(255,255,255,.6);font-weight:300;}
-.prob-close{
-  margin-top:38px;padding:26px 24px;border-left:2px solid var(--brass);background:var(--ink-2);
+.proof-cap i{color:var(--brass);font-size:.66rem;padding-top:5px;}
+.look{border-top:1px solid var(--line-d);}
+.look-i{padding:18px 2px;border-bottom:1px solid var(--line-d);}
+.look-i h3{font-size:1rem;margin-bottom:6px;display:flex;gap:10px;align-items:baseline;}
+.look-i h3 span{font-size:.64rem;font-weight:800;letter-spacing:.1em;color:var(--brass);flex:0 0 auto;}
+.look-i p{font-size:.87rem;color:rgba(255,255,255,.6);font-weight:300;}
+.proof-close{
+  margin-top:34px;padding:24px 24px;border-left:2px solid var(--brass);background:var(--ink-2);
   font-size:1rem;line-height:1.8;color:rgba(255,255,255,.9);
 }
-.prob-close b{color:#fff;font-weight:700;}
+.proof-close b{color:#fff;font-weight:700;}
+.checks{margin-top:30px;}
+.checks .lab{font-size:.66rem;letter-spacing:.22em;font-weight:800;color:var(--brass);margin-bottom:12px;}
+.checks ul{list-style:none;display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-d);
+  border:1px solid var(--line-d);}
+@media(min-width:768px){ .checks ul{grid-template-columns:1fr 1fr;} }
+.checks li{background:var(--ink);padding:14px 16px;font-size:.9rem;color:rgba(255,255,255,.82);
+  display:flex;gap:10px;align-items:baseline;}
+.checks li i{color:var(--brass);font-size:.6rem;}
 
 /* ══════ 왜 다른가 (설계 4항목) ══════ */
 .spec-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-l);border:1px solid var(--line-l);margin-top:30px;}
@@ -387,8 +406,8 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
 
 <!-- ════════ 1. HERO ════════ -->
 <header class="hero" data-sec="1_hero">
-  <video id="heroVid" autoplay muted loop playsinline preload="metadata">
-    <!-- ★ 남자 시술 영상으로 교체 권장 -->
+  <video id="heroVid" autoplay muted loop playsinline preload="metadata"
+         poster="https://raw.githubusercontent.com/songshop-ms/songshop_formen/main/hero-poster.jpg">
     <source src="https://raw.githubusercontent.com/songshop-ms/songshop_formen/main/%EC%8A%A4%ED%83%A0%EB%94%A9%20%EB%82%A8%EC%9E%90%EC%88%98%EC%A0%95.mp4" type="video/mp4">
   </video>
   <div class="hero-veil"></div>
@@ -410,48 +429,56 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
   </div>
 </header>
 
-<!-- ════════ 2. 문제 인식 ════════ -->
-<section class="sec sec--dark" data-sec="2_problem">
+<!-- ════════ 2. 증거 : 눈썹 쓸기 ════════ -->
+<section class="sec sec--dark" data-sec="2_proof">
   <div class="wrap">
     <div class="rv">
-      <div class="rule"><span class="k">문제</span><span class="l"></span></div>
-      <h2 class="h-sec">거울 볼 때마다 걸리는데,<br><em>남자는 가릴 방법이 없습니다.</em></h2>
-      <p class="lede">여자는 매일 아침 그려서 덮습니다. 남자에게는 그 선택지가 없습니다.</p>
+      <div class="rule"><span class="k">증거</span><span class="l"></span></div>
+      <h2 class="h-sec">자연스럽다는 말은 누구나 합니다.<br><em>그래서 쓸어봤습니다.</em></h2>
+      <p class="lede">시술이 끝난 눈썹을 손가락으로 거꾸로 쓸어 올린 영상입니다. 문신한 눈썹의 진짜 상태는 이때 드러납니다.</p>
 
-      <div class="prob-list">
-        <div class="prob">
-          <div class="mm">01</div>
-          <div>
-            <h3>숱이 없어 인상이 흐릿하다</h3>
-            <p>얼굴은 멀쩡한데 사진만 찍으면 존재감이 없습니다. 눈썹이 배경에 묻히기 때문입니다.</p>
+      <div class="proof">
+        <div>
+          <div class="proof-media">
+            <video id="proofVid" autoplay muted loop playsinline preload="metadata"
+                   poster="https://raw.githubusercontent.com/songshop-ms/songshop_formen/main/brow-poster.jpg">
+              <source src="https://raw.githubusercontent.com/songshop-ms/songshop_formen/main/%EB%88%88%EC%8D%B9%EC%93%B8%EA%B8%B0.mp4" type="video/mp4">
+            </video>
+            <div class="proof-badge"><span class="dot"></span> 실제 시술 직후 · 무편집</div>
           </div>
+          <p class="proof-cap"><i class="fas fa-circle"></i>
+            보정·필터 없이 촬영했습니다. 화면을 눌러 다시 재생할 수 있습니다.</p>
         </div>
-        <div class="prob">
-          <div class="mm">02</div>
-          <div>
-            <h3>꼬리가 비어 피곤해 보인다</h3>
-            <p>눈썹 뒤쪽이 짧으면 눈매가 처져 보입니다. 잠을 자도 피곤해 보인다는 말을 듣습니다.</p>
+
+        <div class="look">
+          <div class="look-i">
+            <h3><span>01</span>털을 들췄을 때 아래가 비어 있는가</h3>
+            <p>면으로 색을 채워 넣은 눈썹은 털을 걷어내는 순간 색 덩어리가 그대로 드러납니다. 결로 심은 눈썹은 걷어내도 선만 보입니다.</p>
           </div>
-        </div>
-        <div class="prob">
-          <div class="mm">03</div>
-          <div>
-            <h3>짝눈이라 각도마다 인상이 다르다</h3>
-            <p>좌우 높이가 1mm만 달라도 한쪽은 순하게, 한쪽은 사납게 읽힙니다.</p>
+          <div class="look-i">
+            <h3><span>02</span>심은 결이 실제 털과 같은 방향인가</h3>
+            <p>방향이 어긋나면 쓸어 올렸을 때 문신 선과 진짜 털이 X자로 엇갈립니다. 정면에서는 몰라도 가까이에서 대화할 때 보입니다.</p>
           </div>
-        </div>
-        <div class="prob">
-          <div class="mm">04</div>
-          <div>
-            <h3>예전에 한 문신이 잔흔으로 남았다</h3>
-            <p>붉거나 푸르게 뜬 자국. 남자는 앞머리로도 덮기 어려워 더 오래 신경 쓰입니다.</p>
+          <div class="look-i">
+            <h3><span>03</span>다시 눕혔을 때 라인이 따로 남는가</h3>
+            <p>남자 눈썹은 털을 정리하지 않고 그대로 두는 경우가 많습니다. 원래 털과 심은 결이 하나로 보여야 어느 각도에서도 티가 나지 않습니다.</p>
           </div>
         </div>
       </div>
 
-      <div class="prob-close">
-        눈썹은 얼굴에서 가장 작은 부위지만, <b>첫인상을 가장 먼저 결정하는 선</b>입니다.<br>
-        면접장에서, 거래처 앞에서, 소개팅 자리에서 상대가 제일 먼저 보는 곳이기도 합니다.
+      <div class="proof-close">
+        눈썹문신이 잘됐는지는 <b>사진이 아니라 이 손동작 하나로 갈립니다.</b><br>
+        도장처럼 찍어 넣은 눈썹은 쓸어 올리는 순간 바로 드러납니다.
+      </div>
+
+      <div class="checks">
+        <div class="lab">이런 경우라면 특히</div>
+        <ul>
+          <li><i class="fas fa-minus"></i><span>숱이 없어 인상이 흐릿하다</span></li>
+          <li><i class="fas fa-minus"></i><span>꼬리가 비어 피곤해 보인다</span></li>
+          <li><i class="fas fa-minus"></i><span>좌우 높이가 달라 각도마다 인상이 바뀐다</span></li>
+          <li><i class="fas fa-minus"></i><span>예전에 한 문신이 잔흔으로 남았다</span></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -935,6 +962,17 @@ document.addEventListener('DOMContentLoaded', function () {
     nums.forEach(function (n) { no.observe(n); });
   }
 
+  /* 증거 영상 : 탭하면 처음부터 다시 */
+  var pv = document.getElementById('proofVid');
+  if (pv) {
+    pv.addEventListener('click', function () {
+      pv.currentTime = 0;
+      var r = pv.play();
+      if (r && r.catch) r.catch(function () {});
+    });
+    pv.style.cursor = 'pointer';
+  }
+
   /* 하단바 */
   var bar = document.getElementById('bar');
   window.addEventListener('scroll', function () {
@@ -1119,6 +1157,16 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.faq-q').forEach(function (q, i) {
       q.addEventListener('click', function () { track('act_faq', { index: i + 1 }, { once: true, key: 'faq' + i }); engaged('faq'); });
     });
+
+    var pvid = document.getElementById('proofVid');
+    if (pvid) {
+      pvid.addEventListener('playing', function () {
+        track('proof_video_play', {}, { once: true });
+        engaged('proof_video');
+      });
+      pvid.addEventListener('click', function () { track('proof_video_replay'); });
+      pvid.addEventListener('error', function () { track('proof_video_error'); });
+    }
 
     var more = document.getElementById('moreCard');
     if (more) more.addEventListener('click', function () { track('act_more_portfolio'); });
