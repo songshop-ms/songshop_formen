@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- ══════════════════════════════════════════════════════════════
+     ★ 픽셀 초기화 완료 — 아래 SS_CONFIG 한 곳만 채우면 됩니다.
+       1) Meta 이벤트 관리자에서 '남자 눈썹' 전용 픽셀 새로 생성
+       2) 그 ID를 PIXEL_ID 에 붙여넣기 (지금은 비어 있어 아무것도 전송되지 않음)
+       3) 도메인 인증(facebook-domain-verification)은 픽셀이 아니라 비즈니스
+          단위라서 기존 값 그대로 유지했습니다.
+       4) 새 픽셀에는 맞춤 전환이 없으니 아래 이벤트로 다시 만들어 주세요.
+          · Lead    ← quiz_complete
+          · Contact ← kakao_quiz / kakao_float / kakao_final
+     ══════════════════════════════════════════════════════════════ -->
+<script>
+  window.SS_CONFIG = {
+    PIXEL_ID: '',                 /* ★ 새 픽셀 ID 입력. 비워두면 픽셀 전송 안 함 */
+    GA4_ID:   'G-0ZKV0GH8JN',     /* 기존 GA4 유지. 새로 파려면 여기만 교체 */
+    DEBUG:    false               /* true 로 두면 콘솔에 이벤트가 찍힘 */
+  };
+</script>
+
+<meta name="facebook-domain-verification" content="q6ea1lal1z98xvxd8bp1v10vbc4ljm" />
+
+<!-- Meta Pixel (ID가 있을 때만 로드) -->
+<script>
+(function(){
+  var id = (window.SS_CONFIG && window.SS_CONFIG.PIXEL_ID || '').trim();
+  if (!id) { console.warn('[SONGSHOP] Meta Pixel ID 미설정 — 픽셀 비활성 상태'); return; }
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', id);
+  fbq('track', 'PageView');
+})();
+</script>
+
+<!-- GA4 -->
+<script>
+(function(){
+  var g = (window.SS_CONFIG && window.SS_CONFIG.GA4_ID || '').trim();
+  if (!g) return;
+  var s = document.createElement('script');
+  s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + g;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', g);
+})();
+</script>
+
+<!-- SEO -->
+<title>남자 눈썹문신 전문 | 잠실·강릉 SONGSHOP 송샵</title>
+<meta name="description" content="남자 눈썹문신은 티가 나면 실패입니다. 잠실·강릉 SONGSHOP. 남성 골격·모결·발색을 따로 설계해 시술 다음 날 바로 출근 가능한 자연스러움을 만듭니다. 짱구 눈썹, 잔흔커버, 두피문신.">
+<meta name="keywords" content="남자눈썹문신, 남자 눈썹문신 잠실, 강릉 남자눈썹문신, 남자 자연눈썹, 짱구눈썹, 잔흔커버, 두피문신, SMP">
+<link rel="canonical" href="https://www.songshopbysong.com/men/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="남자 눈썹은 티가 나면 실패입니다 | SONGSHOP">
+<meta property="og:description" content="시술한 티는 지우고, 인상만 바꿉니다. 잠실 본점·강릉 매장, 원장 직접 시술.">
+<meta property="og:url" content="https://www.songshopbysong.com/men/">
+<meta property="og:image" content="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/blog_formen.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="SONGSHOP 송샵">
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+/* ══════ 토큰 ══════ */
+:root{
+  --ink:#111214;          /* 본문 다크 */
+  --ink-2:#191B1E;        /* 다크 카드 */
+  --paper:#F3F1ED;        /* 밝은 섹션 */
+  --paper-2:#FFFFFF;
+  --text:#16181B;
+  --text-sub:#5D6067;
+  --line-d:rgba(255,255,255,.14);
+  --line-l:#E2DED7;
+  --brass:#B08D55;        /* 유일한 강조색 */
+  --kakao:#FEE500;
+  --naver:#03C75A;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Pretendard',sans-serif;color:var(--text);background:var(--paper);
+  line-height:1.65;word-break:keep-all;overflow-x:hidden;
+  padding-bottom:60px;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;width:100%;height:100%;object-fit:cover;}
+button{font-family:inherit;}
+
+.wrap{max-width:940px;margin:0 auto;padding:0 22px;width:100%;}
+.sec{padding:84px 0;position:relative;}
+.sec--dark{background:var(--ink);color:#fff;}
+.sec--paper{background:var(--paper);}
+.sec--white{background:var(--paper-2);}
+@media(max-width:768px){ .sec{padding:64px 0;} }
+
+/* ══════ 시그니처: 측정 눈금선 ══════ */
+.tick{
+  height:9px;width:100%;
+  background-image:repeating-linear-gradient(to right,currentColor 0 1px,transparent 1px 11px);
+  opacity:.28;
+}
+.tick--top{border-top:1px solid currentColor;}
+.rule{display:flex;align-items:center;gap:12px;margin-bottom:26px;}
+.rule .k{
+  font-size:.66rem;letter-spacing:.24em;font-weight:800;color:var(--brass);
+  white-space:nowrap;
+}
+.rule .l{flex:1;height:1px;background:currentColor;opacity:.2;}
+
+/* ══════ 타이포 ══════ */
+h1,h2,h3{letter-spacing:-.035em;line-height:1.28;font-weight:800;}
+.h-sec{font-size:1.72rem;margin-bottom:14px;}
+.h-sec em{font-style:normal;color:var(--brass);}
+.lede{font-size:1rem;color:var(--text-sub);font-weight:400;}
+.sec--dark .lede{color:rgba(255,255,255,.66);}
+.serif{font-family:'Gowun Batang',serif;}
+@media(max-width:768px){ .h-sec{font-size:1.42rem;} .lede{font-size:.94rem;} }
+
+/* ══════ 리빌 ══════ */
+.rv{opacity:0;transform:translateY(22px);transition:.9s cubic-bezier(.2,.8,.2,1);}
+.rv.on{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none;}
+  *{animation:none!important;}
+}
+
+/* ══════ HERO ══════ */
+.hero{
+  position:relative;height:100svh;min-height:560px;background:#0B0C0D;color:#fff;
+  display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;
+}
+#heroVid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72;}
+.hero-veil{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(8,9,10,.55) 0%,rgba(8,9,10,.15) 38%,rgba(8,9,10,.82) 78%,#0B0C0D 100%);
+}
+.hero-in{position:relative;z-index:2;padding:0 22px 13vh;max-width:940px;margin:0 auto;width:100%;}
+.hero-eyebrow{
+  font-size:.66rem;letter-spacing:.3em;font-weight:800;color:var(--brass);margin-bottom:18px;
+}
+.hero h1{font-size:2.05rem;text-shadow:0 2px 22px rgba(0,0,0,.6);}
+.hero h1 .dim{color:rgba(255,255,255,.55);font-weight:700;}
+.hero-sub{
+  margin-top:16px;font-size:1.02rem;color:rgba(255,255,255,.8);font-weight:400;
+  text-shadow:0 2px 14px rgba(0,0,0,.7);
+}
+.hero-meta{
+  margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18);
+  display:flex;gap:18px;flex-wrap:wrap;font-size:.74rem;color:rgba(255,255,255,.6);letter-spacing:.02em;
+}
+.hero-meta b{color:#fff;font-weight:700;}
+.scroll-cue{
+  position:absolute;bottom:calc(22px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
+  z-index:3;color:rgba(255,255,255,.6);font-size:.62rem;letter-spacing:.24em;
+  display:flex;flex-direction:column;align-items:center;gap:7px;padding:14px;cursor:pointer;
+  animation:cue 2.2s ease-in-out infinite;
+}
+@keyframes cue{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,7px);}}
+@media(max-width:768px){
+  .hero h1{font-size:1.66rem;}
+  .hero-sub{font-size:.95rem;}
+  .hero-in{padding-bottom:17vh;}
+}
+
+/* ══════ 문제 ══════ */
+.prob-list{margin-top:36px;border-top:1px solid var(--line-d);}
+.prob{
+  display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;
+  padding:22px 2px;border-bottom:1px solid var(--line-d);
+}
+.prob .mm{
+  font-size:.66rem;font-weight:800;letter-spacing:.06em;color:var(--brass);
+  padding-top:5px;
+}
+.prob h3{font-size:1.06rem;margin-bottom:5px;}
+.prob p{font-size:.9rem;color:rgba(255,255,255,.6);font-weight:300;}
+.prob-close{
+  margin-top:38px;padding:26px 24px;border-left:2px solid var(--brass);background:var(--ink-2);
+  font-size:1rem;line-height:1.8;color:rgba(255,255,255,.9);
+}
+.prob-close b{color:#fff;font-weight:700;}
+
+/* ══════ 왜 다른가 (설계 4항목) ══════ */
+.spec-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-l);border:1px solid var(--line-l);margin-top:30px;}
+@media(min-width:768px){ .spec-grid{grid-template-columns:1fr 1fr;} }
+.spec{background:var(--paper-2);padding:28px 24px;}
+.spec .n{font-size:.64rem;letter-spacing:.22em;font-weight:800;color:var(--brass);}
+.spec h3{font-size:1.08rem;margin:10px 0 8px;}
+.spec p{font-size:.9rem;color:var(--text-sub);}
+.spec .vs{
+  margin-top:14px;padding-top:12px;border-top:1px dashed var(--line-l);
+  font-size:.8rem;color:#8A8D93;
+}
+.spec .vs b{color:var(--text);font-weight:700;}
+
+/* ══════ 포트폴리오 ══════ */
+.hscroll-wrap{margin:0 -22px;width:calc(100% + 44px);}
+.hscroll{
+  display:flex;gap:13px;overflow-x:auto;padding:6px 22px 40px;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+}
+.hscroll::-webkit-scrollbar{display:none;}
+.hscroll::after{content:'';flex:0 0 6px;}
+.pcard{
+  position:relative;min-width:78vw;aspect-ratio:3/4;flex:0 0 auto;scroll-snap-align:center;
+  overflow:hidden;background:#ddd;cursor:pointer;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1);
+}
+@media(min-width:768px){ .pcard{min-width:288px;height:384px;} }
+.pcard.tap{transform:scale(.985);}
+.ba{position:absolute;inset:0;transition:opacity .38s;pointer-events:none;}
+.ba-b{z-index:1;}
+.ba-a{z-index:2;opacity:1;}
+.pcard.before .ba-a{opacity:0;}
+.tag{
+  position:absolute;top:12px;left:12px;z-index:5;
+  background:rgba(0,0,0,.62);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.14em;
+  padding:5px 10px;backdrop-filter:blur(4px);
+}
+.tap-hint{
+  position:absolute;bottom:12px;right:12px;z-index:5;color:rgba(255,255,255,.92);
+  font-size:.74rem;display:flex;align-items:center;gap:6px;text-shadow:0 1px 4px rgba(0,0,0,.6);
+}
+.more-card{
+  min-width:78vw;aspect-ratio:3/4;flex:0 0 auto;scroll-snap-align:center;background:var(--ink);
+  color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  font-size:.95rem;text-align:center;line-height:1.5;
+}
+@media(min-width:768px){ .more-card{min-width:288px;height:384px;} }
+
+/* ══════ 후기 ══════ */
+.rv-item{
+  min-width:270px;width:74vw;max-width:330px;flex:0 0 auto;scroll-snap-align:center;
+  background:#fff;border:1px solid var(--line-l);display:flex;flex-direction:column;
+}
+@media(min-width:768px){ .rv-item{min-width:288px;width:auto;} }
+.rv-thumb{height:172px;overflow:hidden;border-bottom:1px solid var(--line-l);}
+.rv-body{padding:18px;display:flex;flex-direction:column;flex:1;}
+.rv-tag{font-size:.68rem;font-weight:800;color:var(--brass);letter-spacing:.04em;margin-bottom:7px;}
+.rv-title{font-size:1rem;font-weight:700;line-height:1.42;margin-bottom:8px;}
+.rv-desc{font-size:.84rem;color:var(--text-sub);line-height:1.5;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.rv-link{margin-top:auto;padding-top:14px;font-size:.78rem;font-weight:700;display:flex;align-items:center;}
+.n-ic{width:15px;height:15px;background:var(--naver);color:#fff;font-size:9px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;margin-right:6px;}
+
+/* ══════ 경력 ══════ */
+.stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-d);
+  border-bottom:1px solid var(--line-d);padding:22px 0;margin-bottom:6px;}
+.stats>div+div{border-left:1px solid var(--line-d);}
+.stat{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.stat .num{font-size:2.2rem;font-weight:800;line-height:1;letter-spacing:-.04em;}
+.stat .num i{font-style:normal;font-size:1.1rem;color:var(--brass);margin-left:2px;}
+.stat p{font-size:.72rem;color:rgba(255,255,255,.6);letter-spacing:.1em;}
+.rec{display:block;padding:18px 2px;border-bottom:1px solid var(--line-d);}
+.rec-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
+.rec-cat{font-size:.62rem;letter-spacing:.26em;font-weight:800;color:var(--brass);}
+.rec-res{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.7);}
+.rec-t{font-size:1.06rem;font-weight:700;line-height:1.4;}
+.rec-s{display:block;margin-top:5px;font-size:.78rem;font-weight:300;color:rgba(255,255,255,.55);}
+
+/* ══════ 프로세스 ══════ */
+.steps{display:grid;grid-template-columns:1fr;gap:16px;margin-top:30px;}
+@media(min-width:768px){ .steps{grid-template-columns:repeat(3,1fr);} }
+.step{position:relative;height:300px;overflow:hidden;background:#ddd;}
+@media(min-width:768px){ .step{height:400px;} }
+.step-ov{
+  position:absolute;bottom:0;left:0;width:100%;color:#fff;padding:64px 20px 22px;
+  background:linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.35) 62%,transparent);
+}
+.step-n{font-size:.64rem;letter-spacing:.24em;font-weight:800;color:var(--brass);margin-bottom:8px;}
+.step h3{font-size:1.12rem;margin-bottom:6px;}
+.step p{font-size:.86rem;color:rgba(255,255,255,.82);font-weight:300;}
+.promise{
+  margin-top:26px;padding:22px 24px;border:1px solid var(--line-l);background:#fff;
+  font-size:.95rem;line-height:1.75;
+}
+.promise b{color:var(--brass);}
+
+/* ══════ 두피(SMP) ══════ */
+.smp{display:grid;grid-template-columns:1fr;gap:22px;align-items:center;}
+@media(min-width:768px){ .smp{grid-template-columns:1fr 1fr;gap:40px;} }
+.smp-img{aspect-ratio:4/3;overflow:hidden;background:#222;}
+.smp h3{font-size:1.3rem;margin-bottom:12px;}
+.smp p{font-size:.94rem;color:rgba(255,255,255,.7);margin-bottom:16px;}
+.smp ul{list-style:none;font-size:.9rem;}
+.smp li{padding:9px 0;border-bottom:1px solid var(--line-d);display:flex;gap:10px;}
+.smp li i{color:var(--brass);font-size:.7rem;padding-top:6px;}
+
+/* ══════ 진단 ══════ */
+.quiz{border:1px solid var(--line-l);background:#fff;padding:34px 22px;margin-top:26px;}
+.q-txt{font-size:1.06rem;font-weight:700;text-align:center;margin-bottom:8px;}
+.q-hint{font-size:.78rem;color:#9AA0A6;text-align:center;margin-bottom:20px;letter-spacing:.02em;}
+.q-opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;max-width:420px;margin:0 auto;}
+.q-opt{
+  padding:15px 10px;background:var(--paper);border:1px solid var(--line-l);
+  font-size:.9rem;font-weight:600;color:#3A3D42;cursor:pointer;transition:.22s;
+}
+.q-opt:hover,.q-opt:focus-visible{background:var(--ink);color:#fff;border-color:var(--ink);}
+.q-res{display:none;flex-direction:column;align-items:center;text-align:center;gap:14px;}
+.res-kicker{font-size:.64rem;letter-spacing:.26em;font-weight:800;color:var(--brass);}
+.res-title{font-size:1.4rem;font-weight:800;letter-spacing:-.04em;}
+.res-desc{font-size:.92rem;color:var(--text-sub);line-height:1.7;}
+.res-sum{
+  width:100%;max-width:320px;background:var(--paper);border:1px solid var(--line-l);
+  padding:15px 17px;display:flex;flex-direction:column;gap:7px;text-align:left;
+}
+.res-sum p{display:flex;justify-content:space-between;font-size:.84rem;color:#83878D;margin:0;}
+.res-sum b{color:var(--text);font-weight:700;}
+.res-note{font-size:.82rem;color:#9A7B45;line-height:1.6;font-weight:500;}
+.res-desc .hl{color:var(--brass);}
+.res-retry{background:none;border:none;color:#AAA;font-size:.78rem;cursor:pointer;
+  display:flex;align-items:center;gap:5px;}
+.res-retry:hover{color:#666;}
+
+/* ══════ CTA 버튼 ══════ */
+.cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:16px 30px;background:var(--ink);color:#fff;font-size:.95rem;font-weight:700;
+  transition:.25s;border:1px solid var(--ink);
+}
+.cta:hover{background:var(--brass);border-color:var(--brass);}
+.cta i{color:var(--kakao);}
+.cta--brass{background:var(--brass);border-color:var(--brass);}
+.cta--brass:hover{background:var(--ink);border-color:var(--ink);}
+
+/* ══════ FAQ ══════ */
+.faq{border-top:1px solid var(--line-l);}
+.faq-i{border-bottom:1px solid var(--line-l);}
+.faq-q{padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;gap:14px;
+  align-items:center;font-weight:700;font-size:.98rem;}
+.faq-q i{color:var(--brass);font-size:.8rem;transition:.35s;flex:0 0 auto;}
+.faq-a{max-height:0;overflow:hidden;opacity:0;transition:max-height .38s ease,opacity .38s;
+  font-size:.9rem;color:var(--text-sub);line-height:1.72;}
+.faq-i.open .faq-q i{transform:rotate(45deg);}
+.faq-i.open .faq-a{opacity:1;}
+
+/* ══════ 마감 CTA ══════ */
+.final{text-align:center;}
+.final h2{font-size:1.6rem;margin-bottom:14px;}
+.final p{font-size:.98rem;color:rgba(255,255,255,.7);margin-bottom:26px;}
+.final-loc{
+  margin-top:34px;display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-d);
+  border:1px solid var(--line-d);
+}
+@media(min-width:768px){ .final-loc{grid-template-columns:1fr 1fr;} }
+.loc{background:var(--ink);padding:22px;text-align:left;}
+.loc .k{font-size:.64rem;letter-spacing:.24em;font-weight:800;color:var(--brass);margin-bottom:8px;}
+.loc h3{font-size:1.02rem;margin-bottom:4px;}
+.loc p{font-size:.84rem;color:rgba(255,255,255,.6);margin:0;}
+
+footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
+  font-size:.72rem;text-align:center;border-top:1px solid var(--line-d);}
+
+/* ══════ 하단 고정바 ══════ */
+.bar{
+  position:fixed;left:0;bottom:0;width:100%;height:60px;display:flex;z-index:9999;
+  background:#fff;box-shadow:0 -3px 18px rgba(0,0,0,.1);
+  transform:translateY(100%);transition:transform .45s cubic-bezier(.2,.8,.2,1);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.bar.on{transform:none;}
+.bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;
+  font-size:.92rem;font-weight:700;}
+.bar .insta{color:#26282C;}
+.bar .insta i{font-size:1.08rem;background:-webkit-linear-gradient(#f09433,#dc2743,#bc1888);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.bar .talk{background:var(--ink);color:#fff;}
+.bar .talk i{color:var(--kakao);font-size:1.05rem;}
+
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<!-- ════════ 1. HERO ════════ -->
+<header class="hero" data-sec="1_hero">
+  <video id="heroVid" autoplay muted loop playsinline preload="metadata">
+    <!-- ★ 남자 시술 영상으로 교체 권장 -->
+    <source src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/%E1%84%82%E1%85%B2%E1%84%92%E1%85%B5%E1%84%8B%E1%85%A5%E1%84%85%E1%85%A9.mp4" type="video/mp4">
+  </video>
+  <div class="hero-veil"></div>
+
+  <div class="hero-in">
+    <div class="hero-eyebrow">MEN'S BROW · SONGSHOP</div>
+    <h1>남자 눈썹은<br>티가 나면 실패입니다.</h1>
+    <p class="hero-sub">시술한 티는 지우고, 인상만 바꿉니다.</p>
+    <div class="hero-meta">
+      <span>시술 경력 <b>7년+</b></span>
+      <span>누적 <b>3,000건+</b></span>
+      <span><b>원장 직접</b> 시술</span>
+      <span>잠실 · 강릉</span>
+    </div>
+  </div>
+
+  <div class="scroll-cue" onclick="window.scrollTo({top:window.innerHeight,behavior:'smooth'})">
+    <span>SCROLL</span><i class="fas fa-chevron-down"></i>
+  </div>
+</header>
+
+<!-- ════════ 2. 문제 인식 ════════ -->
+<section class="sec sec--dark" data-sec="2_problem">
+  <div class="wrap">
+    <div class="rv">
+      <div class="rule"><span class="k">문제</span><span class="l"></span></div>
+      <h2 class="h-sec">거울 볼 때마다 걸리는데,<br><em>남자는 가릴 방법이 없습니다.</em></h2>
+      <p class="lede">여자는 매일 아침 그려서 덮습니다. 남자에게는 그 선택지가 없습니다.</p>
+
+      <div class="prob-list">
+        <div class="prob">
+          <div class="mm">01</div>
+          <div>
+            <h3>숱이 없어 인상이 흐릿하다</h3>
+            <p>얼굴은 멀쩡한데 사진만 찍으면 존재감이 없습니다. 눈썹이 배경에 묻히기 때문입니다.</p>
+          </div>
+        </div>
+        <div class="prob">
+          <div class="mm">02</div>
+          <div>
+            <h3>꼬리가 비어 피곤해 보인다</h3>
+            <p>눈썹 뒤쪽이 짧으면 눈매가 처져 보입니다. 잠을 자도 피곤해 보인다는 말을 듣습니다.</p>
+          </div>
+        </div>
+        <div class="prob">
+          <div class="mm">03</div>
+          <div>
+            <h3>짝눈이라 각도마다 인상이 다르다</h3>
+            <p>좌우 높이가 1mm만 달라도 한쪽은 순하게, 한쪽은 사납게 읽힙니다.</p>
+          </div>
+        </div>
+        <div class="prob">
+          <div class="mm">04</div>
+          <div>
+            <h3>예전에 한 문신이 잔흔으로 남았다</h3>
+            <p>붉거나 푸르게 뜬 자국. 남자는 앞머리로도 덮기 어려워 더 오래 신경 쓰입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prob-close">
+        눈썹은 얼굴에서 가장 작은 부위지만, <b>첫인상을 가장 먼저 결정하는 선</b>입니다.<br>
+        면접장에서, 거래처 앞에서, 소개팅 자리에서 상대가 제일 먼저 보는 곳이기도 합니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 3. 반론 처리 : 왜 남자 눈썹은 따로 설계해야 하는가 ════════ -->
+<section class="sec sec--paper" data-sec="3_why">
+  <div class="wrap rv">
+    <div class="rule" style="color:var(--text)"><span class="k">기준</span><span class="l"></span></div>
+    <h2 class="h-sec">“짱구 될까 봐” 못 하셨다면,<br>그 걱정이 맞습니다.</h2>
+    <p class="lede">여자 눈썹 기준을 그대로 남자 얼굴에 얹으면 반드시 티가 납니다. SONGSHOP은 네 가지를 따로 계산합니다.</p>
+
+    <div class="spec-grid">
+      <div class="spec">
+        <div class="n">골격</div>
+        <h3>눈썹뼈가 나와 있습니다</h3>
+        <p>남성은 눈썹뼈 돌출이 커서 앉았을 때와 누웠을 때 라인이 크게 달라집니다. 누운 상태로만 그리면 일어섰을 때 위치가 틀어집니다.</p>
+        <div class="vs">앉아서 · 누워서 · 눈 뜬 상태 · 감은 상태 <b>4회 확인 후 확정</b></div>
+      </div>
+      <div class="spec">
+        <div class="n">모결</div>
+        <h3>모근이 굵고 직립입니다</h3>
+        <p>여성용 곡선 결을 그대로 심으면 실제 눈썹과 방향이 어긋나 이질감이 생깁니다. 남성 모결은 앞머리는 세우고 뒤로 갈수록 눕힙니다.</p>
+        <div class="vs">결을 <b>굵고 성글게</b> · 구간별로 방향을 다르게</div>
+      </div>
+      <div class="spec">
+        <div class="n">농도</div>
+        <h3>같은 색도 더 진하게 올라옵니다</h3>
+        <p>남성 피부는 두껍고 유분이 많아 동일 색소가 한 톤 더 진하게 발색됩니다. 여성 기준 농도를 쓰면 그게 바로 ‘짱구’입니다.</p>
+        <div class="vs">기준 대비 <b>한 단계 낮춰</b> 시작 · 부족하면 리터치에서 채움</div>
+      </div>
+      <div class="spec">
+        <div class="n">라인</div>
+        <h3>아치가 들어가는 순간 티가 납니다</h3>
+        <p>남성 눈썹은 곡선을 최소화하고 직선에 가까운 완만한 각도로 갑니다. 각도는 살리되 곡률은 죽이는 것이 핵심입니다.</p>
+        <div class="vs">곡선이 아니라 <b>각도로 인상</b>을 만듭니다</div>
+      </div>
+      <div class="spec">
+        <div class="n">색상</div>
+        <h3>붉은기가 돌면 바로 들킵니다</h3>
+        <p>여성용 색소는 화사하게 보이도록 붉은 기가 섞여 있습니다. 남성 피부에 올리면 시간이 지날수록 그 붉은기만 남아 눈썹만 따로 떠 보입니다.</p>
+        <div class="vs">모발색에 맞춘 <b>무채색 계열</b>로 조색</div>
+      </div>
+      <div class="spec">
+        <div class="n">조화</div>
+        <h3>눈썹만 보고 그리지 않습니다</h3>
+        <p>수염 농도, 헤어라인 위치, 앞머리 유무까지 얼굴 안의 다른 털과 톤이 맞아야 합니다. 눈썹만 진하면 얼굴에서 그 부분만 도드라집니다.</p>
+        <div class="vs">수염 · 헤어라인과 <b>톤을 맞춰</b> 농도 결정</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 4. 증거 : 전후 ════════ -->
+<section class="sec sec--white" data-sec="4_portfolio">
+  <div class="wrap rv">
+    <div class="rule" style="color:var(--text)"><span class="k">결과</span><span class="l"></span></div>
+    <h2 class="h-sec">직접 확인해 보세요.</h2>
+    <p class="lede">사진을 터치하면 시술 전으로 바뀝니다. 보정 없이 같은 조명·같은 각도에서 촬영했습니다.</p>
+
+    <div class="hscroll-wrap">
+      <div class="hscroll">
+        <!-- ★ 아래 6장은 남자 케이스 사진으로 교체하세요 (파일명만 바꾸면 됩니다) -->
+        <div class="pcard">
+          <img class="ba ba-b" loading="lazy" alt="남자 눈썹문신 시술 전" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/1.png">
+          <img class="ba ba-a" loading="lazy" alt="남자 눈썹문신 시술 후" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/2.png">
+          <div class="tag">AFTER</div>
+          <div class="tap-hint"><i class="fas fa-hand-pointer"></i> TOUCH</div>
+        </div>
+        <div class="pcard">
+          <img class="ba ba-b" loading="lazy" alt="남자 눈썹문신 숱 보완 전" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/3.png">
+          <img class="ba ba-a" loading="lazy" alt="남자 눈썹문신 숱 보완 후" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/4.png">
+          <div class="tag">AFTER</div>
+          <div class="tap-hint"><i class="fas fa-hand-pointer"></i> TOUCH</div>
+        </div>
+        <div class="pcard">
+          <img class="ba ba-b" loading="lazy" alt="남자 눈썹 짝눈 교정 전" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/7.png">
+          <img class="ba ba-a" loading="lazy" alt="남자 눈썹 짝눈 교정 후" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/8.png">
+          <div class="tag">AFTER</div>
+          <div class="tap-hint"><i class="fas fa-hand-pointer"></i> TOUCH</div>
+        </div>
+        <div class="pcard">
+          <img class="ba ba-b" loading="lazy" alt="남자 눈썹 잔흔 커버 전" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/9.png">
+          <img class="ba ba-a" loading="lazy" alt="남자 눈썹 잔흔 커버 후" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/10.png">
+          <div class="tag">AFTER</div>
+          <div class="tap-hint"><i class="fas fa-hand-pointer"></i> TOUCH</div>
+        </div>
+        <div class="pcard">
+          <img class="ba ba-b" loading="lazy" alt="남자 눈썹 꼬리 보완 전" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/11.png">
+          <img class="ba ba-a" loading="lazy" alt="남자 눈썹 꼬리 보완 후" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/12.png">
+          <div class="tag">AFTER</div>
+          <div class="tap-hint"><i class="fas fa-hand-pointer"></i> TOUCH</div>
+        </div>
+        <div class="pcard">
+          <img class="ba ba-b" loading="lazy" alt="남자 자연눈썹 시술 전" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/before3.png">
+          <img class="ba ba-a" loading="lazy" alt="남자 자연눈썹 시술 후" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/atfer3.png">
+          <div class="tag">AFTER</div>
+          <div class="tap-hint"><i class="fas fa-hand-pointer"></i> TOUCH</div>
+        </div>
+        <a href="https://www.instagram.com/__songshop/" class="more-card" target="_blank" rel="noopener" id="moreCard">
+          <i class="fab fa-instagram" style="font-size:2.2rem;color:#fff;"></i>
+          <span>남자 시술 케이스<br>더 보기</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 5. 후기 ════════ -->
+<section class="sec sec--paper" data-sec="5_reviews">
+  <div class="wrap rv">
+    <div class="rule" style="color:var(--text)"><span class="k">후기</span><span class="l"></span></div>
+    <h2 class="h-sec">먼저 다녀간 남자 고객들의 말</h2>
+    <p class="lede">광고가 아니라 본인 블로그에 직접 쓴 후기입니다.</p>
+
+    <div class="hscroll-wrap">
+      <div class="hscroll">
+        <a class="rv-item" href="https://blog.naver.com/cgr8274/224235758330" target="_blank" rel="noopener">
+          <div class="rv-thumb"><img loading="lazy" alt="남자 눈썹문신 후기" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/blog_formen.jpg"></div>
+          <div class="rv-body">
+            <div class="rv-tag">#자연스러움 #짱구NO</div>
+            <h3 class="rv-title">눈썹하고 엄청 마음에 들어하는 남편</h3>
+            <p class="rv-desc">남자눈썹문신은 여자눈썹이랑 다르게 너무 진하면 인상이 강해 보일 수 있어서 자연스러움이 핵심이라고 하시더라구요</p>
+            <div class="rv-link"><span class="n-ic">N</span> 후기 전문 보기</div>
+          </div>
+        </a>
+        <a class="rv-item" href="https://blog.naver.com/ssong_1378/223834067219" target="_blank" rel="noopener">
+          <div class="rv-thumb"><img loading="lazy" alt="남편 눈썹문신 후기" src="https://github.com/songshop-ms/songshop/blob/main/%ED%9B%84%EA%B8%B0%EC%8D%B8%EB%84%A4%EC%9D%BC4.jpg?raw=true"></div>
+          <div class="rv-body">
+            <div class="rv-tag">#관리하는남자 #인상변화</div>
+            <h3 class="rv-title">짱구 NO! 남편 데리고 갔다 왔어요</h3>
+            <p class="rv-desc">평소 관리하는걸 잘 못하던 남편인데 눈썹 하나만으로...</p>
+            <div class="rv-link"><span class="n-ic">N</span> 후기 전문 보기</div>
+          </div>
+        </a>
+        <a class="rv-item" href="https://blog.naver.com/9nalog/224159427888" target="_blank" rel="noopener">
+          <div class="rv-thumb"><img loading="lazy" alt="시술 다음날 후기" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/%ED%9B%84%EA%B8%B0%EC%8D%B8%EB%84%A4%EC%9D%BC6.png"></div>
+          <div class="rv-body">
+            <div class="rv-tag">#무통증 #다음날바로출근</div>
+            <h3 class="rv-title">시술 바로 다음날인데 이렇게 자연스러울 수 있네요??</h3>
+            <p class="rv-desc">원하는 결감도 살리고 자연스러움도 더해주셔서 바로 활동해도 전혀 무리없을 정도!!</p>
+            <div class="rv-link"><span class="n-ic">N</span> 후기 전문 보기</div>
+          </div>
+        </a>
+        <a class="rv-item" href="https://blog.naver.com/alsthf916/223859650061" target="_blank" rel="noopener">
+          <div class="rv-thumb"><img loading="lazy" alt="잔흔 커버 후기" src="https://github.com/songshop-ms/songshop/blob/main/%ED%9B%84%EA%B8%B0%EC%8D%B8%EB%84%A4%EC%9D%BC1.jpg?raw=true"></div>
+          <div class="rv-body">
+            <div class="rv-tag">#잔흔커버 #탈각후기</div>
+            <h3 class="rv-title">단골 추천이 많을 수밖에 없는 곳, 송샵!</h3>
+            <p class="rv-desc">눈썹 손 하나도 안 댔는데 라인 너무 예쁘지 않아요?</p>
+            <div class="rv-link"><span class="n-ic">N</span> 후기 전문 보기</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 6. 신뢰 : 누가 하는가 ════════ -->
+<section class="sec sec--dark" data-sec="6_authority">
+  <div class="wrap rv">
+    <div class="rule"><span class="k">시술자</span><span class="l"></span></div>
+    <h2 class="h-sec">이 얼굴을 누가 만지는가.</h2>
+    <p class="lede">잠실 본점과 강릉 매장 모두 원장이 직접 시술합니다. 상담자와 시술자가 다르지 않습니다.</p>
+
+    <div class="stats" style="margin-top:30px;">
+      <div class="stat"><span class="num" data-target="7">0<i>년+</i></span><p>시술 경력</p></div>
+      <div class="stat"><span class="num" data-target="3000">0<i>+</i></span><p>누적 시술</p></div>
+    </div>
+
+    <div class="rec">
+      <div class="rec-top"><span class="rec-cat">수상</span><span class="rec-res">종합 3등</span></div>
+      <div class="rec-t">TNA × TNL × INCA 대만 국제 반영구 대회</div>
+    </div>
+    <div class="rec">
+      <div class="rec-top"><span class="rec-cat">수상</span><span class="rec-res">2등</span></div>
+      <div class="rec-t">JIBC 일본 국제 반영구 대회<span class="rec-s">Eyebrows 부문</span></div>
+    </div>
+    <div class="rec">
+      <div class="rec-top"><span class="rec-cat">활동</span><span class="rec-res">심사위원</span></div>
+      <div class="rec-t">제17회 국제 바디아트 콘테스트<span class="rec-s">반영구 SMP 부문</span></div>
+    </div>
+    <div class="rec">
+      <div class="rec-top"><span class="rec-cat">활동</span><span class="rec-res">특임강사</span></div>
+      <div class="rec-t">대한문신사중앙회<span class="rec-s">문신사 국가고시 담당</span></div>
+    </div>
+    <div class="rec">
+      <div class="rec-top"><span class="rec-cat">해외</span><span class="rec-res">2023</span></div>
+      <div class="rec-t">Chronic Ink · Toronto, Canada<span class="rec-s">소속 아티스트 · Artist of February 선정</span></div>
+    </div>
+    <div class="rec" style="border-bottom:none;">
+      <div class="rec-top"><span class="rec-cat">해외</span><span class="rec-res">2024</span></div>
+      <div class="rec-t">Beauty Friend · Los Angeles, USA<span class="rec-s">소속 아티스트 · K-beauty 담당</span></div>
+    </div>
+
+    <p class="serif" style="margin-top:34px;padding-left:18px;border-left:2px solid var(--brass);font-size:1.02rem;line-height:1.85;color:rgba(255,255,255,.9);">
+      원하시는 이미지를 말로 설명하기 어려우셔도 괜찮습니다.<br>
+      “부담스럽지 않게”, “그냥 있어 보이게” 정도만 말씀해 주시면<br>
+      나머지 계산은 제가 합니다.
+      <span style="display:block;margin-top:14px;font-size:.82rem;letter-spacing:.06em;color:rgba(255,255,255,.55);font-family:'Pretendard',sans-serif;">SONGSHOP 원장 송민성</span>
+    </p>
+  </div>
+</section>
+
+<!-- ════════ 7. 위험 제거 : 진행 방식 ════════ -->
+<section class="sec sec--white" data-sec="7_process">
+  <div class="wrap rv">
+    <div class="rule" style="color:var(--text)"><span class="k">진행</span><span class="l"></span></div>
+    <h2 class="h-sec">바늘은 마지막에 들어갑니다.</h2>
+    <p class="lede">디자인을 눈으로 확인하고 “이거면 됐다”고 하실 때까지 시술은 시작되지 않습니다.</p>
+
+    <div class="steps">
+      <div class="step">
+        <img class="ba" loading="lazy" alt="남자 눈썹문신 상담" src="https://github.com/songshop-ms/songshop/blob/main/%EC%83%81%EB%8B%B4.jpg?raw=true" style="position:static;">
+        <div class="step-ov">
+          <div class="step-n">STEP 01</div>
+          <h3>골격 · 잔흔 확인</h3>
+          <p>눈썹뼈 높이, 좌우 비대칭, 기존 잔흔의 색과 깊이를 먼저 체크합니다.</p>
+        </div>
+      </div>
+      <div class="step">
+        <img class="ba" loading="lazy" alt="남자 눈썹 디자인" src="https://github.com/songshop-ms/songshop/blob/main/%EB%94%94%EC%9E%90%EC%9D%B81.jpg?raw=true" style="position:static;">
+        <div class="step-ov">
+          <div class="step-n">STEP 02</div>
+          <h3>디자인 확정</h3>
+          <p>앉아서, 누워서, 눈 뜨고 감고 네 번 확인합니다. 확정 전까지는 지우고 다시 그립니다.</p>
+        </div>
+      </div>
+      <div class="step">
+        <img class="ba" loading="lazy" alt="남자 눈썹문신 시술" src="https://github.com/songshop-ms/songshop/blob/main/%EC%9E%91%EC%97%85.jpg?raw=true" style="position:static;">
+        <div class="step-ov">
+          <div class="step-n">STEP 03</div>
+          <h3>결 시술</h3>
+          <p>피부 손상을 최소화하는 깊이로 한 올씩. 남성 모결 방향에 맞춰 구간별로 심습니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="promise">
+      <b>연하게 시작합니다.</b> 첫 시술은 의도적으로 기준보다 옅게 잡습니다.<br>
+      진하게 넣은 건 되돌리기 어렵지만, 옅게 넣은 건 리터치에서 채울 수 있기 때문입니다.<br>
+      그래서 <b>시술 다음 날 그대로 출근하셔도 됩니다.</b>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 8. 확장 : 두피문신 ════════ -->
+<section class="sec sec--dark" data-sec="8_smp">
+  <div class="wrap rv">
+    <div class="rule"><span class="k">추가</span><span class="l"></span></div>
+    <div class="smp">
+      <div class="smp-img">
+        <!-- ★ 두피문신(SMP) 케이스 사진으로 교체 -->
+        <img loading="lazy" alt="남자 두피문신 SMP" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/after4.png">
+      </div>
+      <div>
+        <h3>헤어라인도 같이 신경 쓰신다면</h3>
+        <p>눈썹과 두피는 같은 얼굴 프레임입니다. SONGSHOP은 두피문신(SMP)도 원장이 직접 진행합니다.</p>
+        <ul>
+          <li><i class="fas fa-minus"></i><span>M자 헤어라인 · 이마 라인 보정</span></li>
+          <li><i class="fas fa-minus"></i><span>정수리 빈 부분 밀도 채우기</span></li>
+          <li><i class="fas fa-minus"></i><span>모발 이식 흉터 · 수술 흉터 커버</span></li>
+          <li><i class="fas fa-minus"></i><span>눈썹과 함께 진행 시 톤을 맞춰 설계</span></li>
+        </ul>
+        <p style="margin-top:18px;font-size:.86rem;color:rgba(255,255,255,.5);">
+          두피 상태에 따라 가능 여부가 갈립니다. 카카오톡으로 사진 보내주시면 먼저 확인해 드립니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 9. 진단 (미세 전환) ════════ -->
+<section class="sec sec--paper" data-sec="9_diagnosis">
+  <div class="wrap rv" style="max-width:700px;">
+    <div class="rule" style="color:var(--text)"><span class="k">진단</span><span class="l"></span></div>
+    <h2 class="h-sec">30초 인상 진단</h2>
+    <p class="lede">세 가지만 고르면 어떤 라인으로 가야 하는지 알려드립니다.</p>
+
+    <div class="quiz" id="quiz">
+      <div class="q-step" data-step="1">
+        <p class="q-txt">Q1. 지금 눈썹에서 가장 걸리는 건?</p>
+        <p class="q-hint">1 / 3</p>
+        <div class="q-opts">
+          <button class="q-opt" data-step="1" data-value="숱">숱이 없다</button>
+          <button class="q-opt" data-step="1" data-value="꼬리">꼬리가 비었다</button>
+          <button class="q-opt" data-step="1" data-value="짝눈">좌우가 다르다</button>
+          <button class="q-opt" data-step="1" data-value="잔흔">예전 문신 잔흔</button>
+        </div>
+      </div>
+
+      <div class="q-step" data-step="2" style="display:none;">
+        <p class="q-txt">Q2. 지금 얼굴이 주는 인상은?</p>
+        <p class="q-hint">2 / 3</p>
+        <div class="q-opts">
+          <button class="q-opt" data-step="2" data-value="피곤">피곤해 보인다</button>
+          <button class="q-opt" data-step="2" data-value="세보임">세 보인다</button>
+          <button class="q-opt" data-step="2" data-value="순함">너무 순해 보인다</button>
+          <button class="q-opt" data-step="2" data-value="흐릿">존재감이 없다</button>
+        </div>
+      </div>
+
+      <div class="q-step" data-step="3" style="display:none;">
+        <p class="q-txt">Q3. 원하는 인상은?</p>
+        <p class="q-hint">3 / 3</p>
+        <div class="q-opts">
+          <button class="q-opt" data-step="3" data-value="신뢰">신뢰감 있게</button>
+          <button class="q-opt" data-step="3" data-value="또렷">또렷하게</button>
+          <button class="q-opt" data-step="3" data-value="부드럽">부드럽게</button>
+          <button class="q-opt" data-step="3" data-value="티없이">티 안 나게만</button>
+        </div>
+      </div>
+
+      <div class="q-res" id="quizRes">
+        <div class="res-kicker">RESULT</div>
+        <h3 class="res-title" id="resTitle">스트레이트 내추럴형</h3>
+        <p class="res-desc" id="resDesc"></p>
+
+        <div class="res-sum">
+          <p><span>눈썹 고민</span><b id="sumA">-</b></p>
+          <p><span>현재 인상</span><b id="sumB">-</b></p>
+          <p><span>원하는 인상</span><b id="sumC">-</b></p>
+        </div>
+
+        <p class="res-note">
+          <i class="fas fa-camera"></i> 이 화면을 캡처해서 정면 사진과 함께 보내주시면,<br>
+          시술 전에 어떤 라인이 나오는지 먼저 잡아드립니다.
+        </p>
+
+        <a class="cta cta--brass" id="resCta" href="https://pf.kakao.com/_xhKxnhxj/chat" target="_blank" rel="noopener">
+          <i class="fas fa-comment"></i> 이 결과로 상담받기
+        </a>
+        <button class="res-retry" id="resRetry"><i class="fas fa-undo"></i> 다시 하기</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 10. FAQ ════════ -->
+<section class="sec sec--white" data-sec="10_faq">
+  <div class="wrap rv" style="max-width:760px;">
+    <div class="rule" style="color:var(--text)"><span class="k">질문</span><span class="l"></span></div>
+    <h2 class="h-sec">남자분들이 실제로 가장 많이 묻는 것</h2>
+
+    <div class="faq">
+      <div class="faq-i">
+        <div class="faq-q">시술 다음 날 바로 출근해도 되나요? <i class="fas fa-plus"></i></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">네. 남성 시술은 처음부터 옅게 잡기 때문에 시술 직후에도 일상생활이 가능합니다. 다만 2~3일간은 약간 진해 보이는 구간이 있고, 탈각이 끝나는 7~10일 뒤 최종 농도로 자리 잡습니다.</p></div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q">주변에서 눈썹 한 걸 알아볼까요? <i class="fas fa-plus"></i></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">대부분 “뭔가 인상이 달라졌는데 뭔지 모르겠다”는 반응을 듣습니다. 곡선을 최소화하고 원래 눈썹 결 방향 그대로 채우기 때문에, 눈썹만 따로 도드라지지 않습니다.</p></div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q">많이 아픈가요? <i class="fas fa-plus"></i></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">마취 연고를 충분히 도포한 뒤 진행하며, 시술 중 자다 가시는 분들도 많습니다. 통증보다 시간이 부담이라면 미리 말씀해 주세요. 일정에 맞춰 조정합니다.</p></div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q">운동, 샤워, 면도는 어떻게 하나요? <i class="fas fa-plus"></i></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">탈각 전 약 일주일간만 과격한 운동, 사우나, 긴 샤워를 피해 주시면 됩니다. 그 이후로는 운동도 면도도 평소대로 하시면 됩니다. 땀이나 세안으로 지워지지 않기 때문에, 매일 관리할 시간이 없는 분일수록 오히려 유리한 시술입니다.</p></div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q">평생 남나요? 마음에 안 들면요? <i class="fas fa-plus"></i></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">반영구입니다. 피부 타입과 관리에 따라 보통 1~2년에 걸쳐 서서히 옅어집니다. 무엇보다 디자인을 확정하기 전에는 시술을 시작하지 않으므로, 그리는 단계에서 얼마든지 수정하실 수 있습니다.</p></div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q">예전에 한 문신 잔흔이 있는데 가능한가요? <i class="fas fa-plus"></i></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">잔흔의 색상(붉은기·푸른기)과 진하기에 따라 바로 커버가 가능한 경우와 제거를 먼저 권하는 경우가 나뉩니다. 예약 전에 카카오톡이나 인스타 DM으로 사진을 보내주시면 어느 쪽인지 먼저 확인해 드립니다.</p></div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q">리터치는 꼭 받아야 하나요? <i class="fas fa-plus"></i></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">권장합니다. 첫 시술은 의도적으로 옅게 넣기 때문에, 피부 재생 주기를 고려해 4~8주 사이에 리터치로 농도와 결을 채워야 완성입니다.</p></div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q">잠실과 강릉, 어디서 받을 수 있나요? <i class="fas fa-plus"></i></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">두 곳 모두 원장이 직접 시술하며 동일한 기준으로 진행합니다. 예약 시 편하신 지점을 말씀해 주세요.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 11. 마감 ════════ -->
+<section class="sec sec--dark" data-sec="11_cta">
+  <div class="wrap rv final">
+    <h2>사진 한 장만 보내주세요.</h2>
+    <p>정면 사진을 보내주시면 가능 여부와 방향을 먼저 알려드립니다.<br>예약 전 상담만 하셔도 됩니다.</p>
+    <a class="cta cta--brass" id="finalCta" href="https://pf.kakao.com/_xhKxnhxj/chat" target="_blank" rel="noopener">
+      <i class="fas fa-comment"></i> 카카오톡으로 1:1 상담
+    </a>
+
+    <div class="final-loc">
+      <div class="loc">
+        <div class="k">잠실 본점</div>
+        <h3>서울 송파구 백제고분로7길 24-19</h3>
+        <p>잠실 · 송파 일대 · 예약제 운영</p>
+      </div>
+      <div class="loc">
+        <div class="k">강릉 매장</div>
+        <h3>강원특별자치도 강릉시 토성로 118</h3>
+        <p>강릉 · 동해권 · 예약제 운영</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2025 SONGSHOP. All rights reserved.</div>
+</footer>
+
+<!-- 하단 고정바 -->
+<div class="bar" id="bar">
+  <a class="insta" href="https://www.instagram.com/__songshop/" target="_blank" rel="noopener" id="instaBtn">
+    <i class="fab fa-instagram"></i> 시술 사진
+  </a>
+  <a class="talk" href="https://pf.kakao.com/_xhKxnhxj/chat" target="_blank" rel="noopener" id="floatCta">
+    <i class="fas fa-comment"></i> 상담 문의
+  </a>
+</div>
+
+<!-- ══════ UI ══════ -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* 리빌 */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es, o) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); o.unobserve(e.target); } });
+    }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('on'); });
+  }
+
+  /* 전후 카드 */
+  document.querySelectorAll('.pcard').forEach(function (c) {
+    c.addEventListener('click', function () {
+      c.classList.add('tap');
+      setTimeout(function () {
+        c.classList.toggle('before');
+        var t = c.querySelector('.tag');
+        var b = c.classList.contains('before');
+        t.textContent = b ? 'BEFORE' : 'AFTER';
+        t.style.background = b ? '#B08D55' : 'rgba(0,0,0,.62)';
+      }, 150);
+      setTimeout(function () { c.classList.remove('tap'); }, 400);
+    });
+  });
+
+  /* FAQ */
+  var faqs = document.querySelectorAll('.faq-i');
+  faqs.forEach(function (it) {
+    it.querySelector('.faq-q').addEventListener('click', function () {
+      var open = it.classList.contains('open');
+      faqs.forEach(function (o) { o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null; });
+      if (!open) {
+        it.classList.add('open');
+        var a = it.querySelector('.faq-a');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* 숫자 카운터 */
+  var nums = document.querySelectorAll('.num');
+  if (nums.length && 'IntersectionObserver' in window) {
+    var no = new IntersectionObserver(function (es, o) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target, target = parseInt(el.dataset.target, 10);
+        var suffix = el.querySelector('i') ? el.querySelector('i').outerHTML : '';
+        var t0 = performance.now(), dur = 1500;
+        (function step(t) {
+          var p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+          el.innerHTML = Math.floor(eased * target).toLocaleString('ko-KR') + suffix;
+          if (p < 1) requestAnimationFrame(step);
+          else el.innerHTML = target.toLocaleString('ko-KR') + suffix;
+        })(t0);
+        o.unobserve(el);
+      });
+    }, { threshold: .5 });
+    nums.forEach(function (n) { no.observe(n); });
+  }
+
+  /* 하단바 */
+  var bar = document.getElementById('bar');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 320) bar.classList.add('on'); else bar.classList.remove('on');
+  }, { passive: true });
+
+  /* ══ 진단 ══ */
+  var ans = { 1: null, 2: null, 3: null };
+  var steps = {};
+  document.querySelectorAll('.q-step').forEach(function (s) { steps[s.dataset.step] = s; });
+  var res = document.getElementById('quizRes');
+
+  var LABEL = {
+    1: { '숱': '숱이 없다', '꼬리': '꼬리가 비었다', '짝눈': '좌우가 다르다', '잔흔': '예전 문신 잔흔' },
+    2: { '피곤': '피곤해 보임', '세보임': '세 보임', '순함': '순해 보임', '흐릿': '존재감 없음' },
+    3: { '신뢰': '신뢰감 있게', '또렷': '또렷하게', '부드럽': '부드럽게', '티없이': '티 안 나게' }
+  };
+
+  document.querySelectorAll('.q-opt').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var s = parseInt(this.dataset.step, 10);
+      ans[s] = this.dataset.value;
+      steps[s].style.display = 'none';
+      if (s < 3) steps[s + 1].style.display = 'block';
+      else showResult();
+    });
+  });
+
+  function showResult() {
+    var title, desc;
+
+    switch (ans[3]) {
+      case '또렷':
+        title = '소프트 앵글형';
+        desc = '눈썹 산에 완만한 각을 넣어 눈매를 또렷하게 잡습니다.<br>곡선은 죽이고 각도만 살려, 강해 보이지 않으면서 인상이 분명해집니다.';
+        break;
+      case '부드럽':
+        title = '라운드 내추럴형';
+        desc = '각을 거의 없애고 완만한 흐름으로 갑니다.<br>인상이 세 보이는 분에게 가장 많이 나가는 라인입니다.';
+        break;
+      case '티없이':
+        title = '미니멀 결감형';
+        desc = '라인을 새로 만들지 않고 비어 있는 구간만 결로 채웁니다.<br>가장 옅게 들어가는 방식이라, 본인 말고는 알아채기 어렵습니다.';
+        break;
+      default:
+        title = '스트레이트 내추럴형';
+        desc = '직선에 가까운 표준 비율로, 신뢰감이 필요한 자리에서 가장 무난합니다.<br>남성 시술에서 가장 많이 선택되는 기본형입니다.';
+    }
+
+    if (ans[1] === '잔흔') {
+      title = '잔흔 리셋 커버형';
+      desc = '남아 있는 잔흔의 색부터 정리한 뒤 새 라인을 얹습니다.<br>잔흔 상태에 따라 커버로 갈지 제거를 먼저 할지 갈리므로, 사진 확인이 꼭 필요합니다.';
+    }
+
+    /* Q2 — 지금 인상을 어떻게 되돌릴지 */
+    var vibeFix = {
+      '피곤':  '지금 피곤해 보이는 건 꼬리가 내려가 있기 때문입니다. 꼬리 각도부터 올립니다.',
+      '세보임': '세 보이는 원인은 대개 눈썹 앞머리입니다. 앞쪽 농도를 낮추고 간격을 넓혀 인상을 풉니다.',
+      '순함':  '눈썹 산 위치를 바깥쪽으로 옮겨, 순한 인상에 힘을 넣습니다.',
+      '흐릿':  '라인을 새로 긋지 않고 밀도만 올려서, 티 없이 존재감만 살립니다.'
+    };
+    if (vibeFix[ans[2]]) desc += '<br><span class="hl">' + vibeFix[ans[2]] + '</span>';
+
+    /* Q1 — 구조적으로 손봐야 할 부분 */
+    var partFix = {
+      '짝눈': '좌우 비대칭은 앞머리 높이부터 다시 잡습니다.',
+      '꼬리': '비어 있는 꼬리를 연장해 눈매를 올립니다.',
+      '숱':   '남아 있는 결의 방향을 따라 빈 구간만 채웁니다.'
+    };
+    if (partFix[ans[1]]) desc += '<br><span class="hl">' + partFix[ans[1]] + '</span>';
+
+    document.getElementById('resTitle').textContent = title;
+    document.getElementById('resDesc').innerHTML = desc;
+    document.getElementById('sumA').textContent = LABEL[1][ans[1]] || '-';
+    document.getElementById('sumB').textContent = LABEL[2][ans[2]] || '-';
+    document.getElementById('sumC').textContent = LABEL[3][ans[3]] || '-';
+
+    var msg = '[SONGSHOP 남자 눈썹 진단] 결과: "' + title + '" / 고민: '
+            + (LABEL[1][ans[1]] || '-') + ' / 현재 인상: ' + (LABEL[2][ans[2]] || '-')
+            + ' / 원하는 인상: ' + (LABEL[3][ans[3]] || '-') + ' — 상담 원합니다.';
+    document.getElementById('resCta').href =
+      'https://pf.kakao.com/_xhKxnhxj/chat?text=' + encodeURIComponent(msg);
+
+    res.style.display = 'flex';
+    window.__ssQuizResult = title;
+  }
+
+  document.getElementById('resRetry').addEventListener('click', function () {
+    ans[1] = ans[2] = ans[3] = null;
+    steps[1].style.display = 'block';
+    steps[2].style.display = 'none';
+    steps[3].style.display = 'none';
+    res.style.display = 'none';
+  });
+});
+</script>
+
+<!-- ══════ 계측 (남자 LP 전용 이벤트 스키마) ══════ -->
+<script>
+(function () {
+  "use strict";
+
+  var LOC = (function () {
+    try {
+      var q = new URLSearchParams(location.search).get('loc');
+      if (q) sessionStorage.setItem('ss_loc_men', q);
+      return sessionStorage.getItem('ss_loc_men') || 'unknown';
+    } catch (e) { return 'unknown'; }
+  })();
+
+  var DEBUG = !!(window.SS_CONFIG && window.SS_CONFIG.DEBUG);
+  var sent = {};
+
+  function track(name, params, opts) {
+    params = params || {};
+    params.loc = LOC;
+    params.lp = 'men';
+    opts = opts || {};
+    if (opts.once) {
+      var key = opts.key || name;
+      if (sent[key]) return;
+      sent[key] = 1;
+    }
+    if (DEBUG) console.log('[track]', opts.standard || name, params);
+    try {
+      if (typeof fbq === 'function') {
+        if (opts.standard) fbq('track', opts.standard, params);
+        else fbq('trackCustom', name, params);
+      }
+    } catch (e) {}
+    try { if (typeof gtag === 'function') gtag('event', name, params); } catch (e) {}
+  }
+
+  var activeSec = 0, focused = null, dwell = {}, ratios = {}, maxDepth = 0, quizStep = 0;
+
+  setInterval(function () {
+    if (document.visibilityState !== 'visible') return;
+    activeSec++;
+    var best = null, bestR = .25;
+    for (var k in ratios) { if (ratios[k] > bestR) { bestR = ratios[k]; best = k; } }
+    if (best) { focused = best; dwell[best] = (dwell[best] || 0) + 1; }
+  }, 1000);
+
+  var vis = 0;
+  var vt = setInterval(function () {
+    if (document.visibilityState !== 'visible') return;
+    if (++vis >= 3) { clearInterval(vt); track('engaged_3s', {}, { once: true }); }
+  }, 1000);
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          var name = en.target.getAttribute('data-sec');
+          ratios[name] = en.isIntersecting ? en.intersectionRatio : 0;
+          var vh = window.innerHeight || document.documentElement.clientHeight;
+          var reached = en.intersectionRatio >= .5 ||
+                        (en.isIntersecting && en.intersectionRect.height >= vh * .5);
+          if (reached) track('section_reach', { section: name }, { once: true, key: 'r_' + name });
+        });
+      }, { threshold: [0, .05, .1, .25, .4, .5, .75, 1] });
+      document.querySelectorAll('[data-sec]').forEach(function (s) { io.observe(s); });
+    }
+
+    window.addEventListener('scroll', function () {
+      var d = document.documentElement;
+      var p = (d.scrollTop || window.scrollY) / (d.scrollHeight - d.clientHeight) * 100;
+      if (p > maxDepth) maxDepth = Math.min(100, Math.round(p));
+    }, { passive: true });
+
+    function engaged(kind) { track('engaged_view', { kind: kind }, { once: true, key: 'e_' + kind }); }
+
+    document.querySelectorAll('.pcard').forEach(function (c) {
+      c.addEventListener('click', function () {
+        if (!c.classList.contains('before')) { track('act_portfolio', {}, { once: true }); engaged('portfolio'); }
+      });
+    });
+    document.querySelectorAll('.rv-item').forEach(function (it, i) {
+      it.addEventListener('click', function () { track('act_review', { index: i + 1 }); engaged('review'); });
+    });
+    document.querySelectorAll('.faq-q').forEach(function (q, i) {
+      q.addEventListener('click', function () { track('act_faq', { index: i + 1 }, { once: true, key: 'faq' + i }); engaged('faq'); });
+    });
+
+    var more = document.getElementById('moreCard');
+    if (more) more.addEventListener('click', function () { track('act_more_portfolio'); });
+    var insta = document.getElementById('instaBtn');
+    if (insta) insta.addEventListener('click', function () { track('act_instagram', { placement: 'float' }); });
+
+    document.querySelectorAll('.q-opt').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var s = parseInt(this.dataset.step, 10);
+        if (s === 1) { track('quiz_start', {}, { once: true }); engaged('quiz'); }
+        if (s > quizStep) quizStep = s;
+        track('quiz_q' + s, { value: this.dataset.value }, { once: true, key: 'q' + s });
+        if (s === 3) {
+          track('quiz_complete', { result: window.__ssQuizResult || '', answer: this.dataset.value },
+                { once: true, standard: 'Lead' });
+        }
+      });
+    });
+
+    var retry = document.getElementById('resRetry');
+    if (retry) retry.addEventListener('click', function () { track('quiz_retry'); });
+
+    var qcta = document.getElementById('resCta');
+    if (qcta) qcta.addEventListener('click', function () {
+      track('kakao_quiz', { placement: 'quiz', result: window.__ssQuizResult || '', depth: maxDepth },
+            { standard: 'Contact' });
+    });
+
+    var fcta = document.getElementById('finalCta');
+    if (fcta) fcta.addEventListener('click', function () {
+      track('kakao_final', { placement: 'final', depth: maxDepth }, { standard: 'Contact' });
+    });
+
+    var float = document.getElementById('floatCta');
+    if (float) float.addEventListener('click', function () {
+      track('kakao_float', { placement: 'float', section: focused || 'unknown', depth: maxDepth },
+            { standard: 'Contact' });
+    });
+  });
+
+  function bucket(n) {
+    if (n < 3) return '0-2';
+    if (n < 10) return '3-9';
+    if (n < 30) return '10-29';
+    if (n < 60) return '30-59';
+    return '60+';
+  }
+
+  var exited = false;
+  function exitSnapshot() {
+    if (exited) return;
+    exited = true;
+    var top = null, topN = 0, str = [];
+    for (var k in dwell) { str.push(k + ':' + dwell[k]); if (dwell[k] > topN) { topN = dwell[k]; top = k; } }
+    track('lp_exit', {
+      last_section: focused || '1_hero',
+      top_section: top || '1_hero',
+      depth: maxDepth,
+      active: bucket(activeSec),
+      quiz_step: quizStep,
+      dwell: str.join(',')
+    });
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'hidden') exitSnapshot();
+  });
+  window.addEventListener('pagehide', exitSnapshot);
+})();
+</script>
+
+<!-- 구조화 데이터 -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BeautySalon",
+  "name":"SONGSHOP 송샵 (잠실 본점)",
+  "description":"남자 눈썹문신 전문. 남성 골격·모결·발색에 맞춘 자연스러운 설계. 잔흔커버, 두피문신(SMP).",
+  "url":"https://www.songshopbysong.com/men/",
+  "image":"https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/blog_formen.jpg",
+  "telephone":"+82-10-7579-6581",
+  "priceRange":"₩₩",
+  "areaServed":["잠실","송파구","서울"],
+  "knowsAbout":["남자눈썹문신","남자 자연눈썹","잔흔커버","두피문신","SMP","헤어라인"],
+  "sameAs":["https://www.instagram.com/__songshop/"],
+  "address":{"@type":"PostalAddress","streetAddress":"백제고분로7길 24-19","addressLocality":"송파구","addressRegion":"서울","postalCode":"05560","addressCountry":"KR"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BeautySalon",
+  "name":"SONGSHOP 송샵 (강릉 매장)",
+  "description":"강릉 남자 눈썹문신 전문. 자연스러운 남성 눈썹 설계, 잔흔커버, 두피문신(SMP).",
+  "url":"https://www.songshopbysong.com/men/",
+  "image":"https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/after5.png",
+  "telephone":"+82-10-7579-6581",
+  "priceRange":"₩₩",
+  "areaServed":["강릉","강원특별자치도"],
+  "knowsAbout":["남자눈썹문신","남자 자연눈썹","잔흔커버","두피문신","SMP"],
+  "sameAs":["https://www.instagram.com/__songshop/"],
+  "address":{"@type":"PostalAddress","streetAddress":"토성로 118","addressLocality":"강릉시","addressRegion":"강원특별자치도","postalCode":"25534","addressCountry":"KR"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"송민성",
+  "jobTitle":"SONGSHOP 원장 / 반영구화장 아티스트",
+  "url":"https://www.songshopbysong.com/men/",
+  "sameAs":["https://www.instagram.com/__songshop/"],
+  "knowsAbout":["남자눈썹문신","남자 자연눈썹","잔흔커버","두피문신","SMP"],
+  "worksFor":{"@type":"BeautySalon","name":"SONGSHOP 송샵"},
+  "award":[
+    "TNA X TNL X INCA 대만 국제 반영구 대회 종합 3등",
+    "JIBC 일본 국제 반영구 대회 Eyebrows 부문 2등",
+    "제17회 국제 바디아트 콘테스트 반영구 SMP 부문 심사위원"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"남자 눈썹문신 후 다음 날 바로 출근해도 되나요?","acceptedAnswer":{"@type":"Answer","text":"네. 남성 시술은 처음부터 옅게 잡기 때문에 시술 직후에도 일상생활이 가능합니다. 2~3일간 약간 진해 보이는 구간이 있고, 탈각이 끝나는 7~10일 뒤 최종 농도로 자리 잡습니다."}},
+    {"@type":"Question","name":"주변에서 눈썹 한 것을 알아볼까요?","acceptedAnswer":{"@type":"Answer","text":"곡선을 최소화하고 원래 눈썹 결 방향 그대로 채우기 때문에 눈썹만 따로 도드라지지 않습니다. 인상이 달라진 것은 느끼지만 시술 여부는 알아보기 어렵습니다."}},
+    {"@type":"Question","name":"남자 눈썹문신은 많이 아픈가요?","acceptedAnswer":{"@type":"Answer","text":"마취 연고를 충분히 도포한 뒤 진행하며 시술 중 주무시는 분들도 많습니다."}},
+    {"@type":"Question","name":"눈썹문신 후 운동, 샤워, 면도는 어떻게 하나요?","acceptedAnswer":{"@type":"Answer","text":"탈각 전 약 일주일간 과격한 운동과 사우나, 긴 샤워를 피해 주시면 됩니다. 이후에는 운동과 면도 모두 평소대로 하시면 됩니다. 땀이나 세안으로 지워지지 않아 매일 관리할 시간이 없는 분에게 유리합니다."}},
+    {"@type":"Question","name":"눈썹문신은 평생 남나요?","acceptedAnswer":{"@type":"Answer","text":"반영구입니다. 피부 타입과 관리에 따라 보통 1~2년에 걸쳐 서서히 옅어집니다. 디자인 확정 전에는 시술을 시작하지 않아 그리는 단계에서 수정이 가능합니다."}},
+    {"@type":"Question","name":"기존 문신 잔흔이 있는데 가능한가요?","acceptedAnswer":{"@type":"Answer","text":"잔흔의 색상과 진하기에 따라 커버가 가능한 경우와 제거를 먼저 권하는 경우로 나뉩니다. 사진을 보내주시면 먼저 확인해 드립니다."}},
+    {"@type":"Question","name":"리터치는 꼭 받아야 하나요?","acceptedAnswer":{"@type":"Answer","text":"권장합니다. 첫 시술은 의도적으로 옅게 넣기 때문에 4주에서 8주 사이 리터치로 농도와 결을 채워야 완성입니다."}},
+    {"@type":"Question","name":"잠실과 강릉 중 어디서 받을 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"두 곳 모두 원장이 직접 시술하며 동일한 기준으로 진행합니다."}}
+  ]
+}
+</script>
+</body>
+</html>
