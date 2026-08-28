@@ -400,17 +400,35 @@ h1,h2,h3{letter-spacing:-.035em;line-height:1.28;font-weight:800;}
 
 /* ══════ 마감 CTA ══════ */
 .final{text-align:center;}
-.final h2{font-size:1.6rem;margin-bottom:14px;}
-.final p{font-size:.98rem;color:rgba(255,255,255,.7);margin-bottom:26px;}
-.final-loc{
-  margin-top:34px;display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-d);
-  border:1px solid var(--line-d);
+.final h2{font-size:1.9rem;margin-bottom:14px;}
+.final .lede{margin:0 auto;max-width:520px;}
+@media(max-width:768px){ .final h2{font-size:1.55rem;} }
+
+/* 보내면 무엇이 돌아오는지 */
+.flow{
+  display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-d);
+  border:1px solid var(--line-d);margin:34px 0 30px;text-align:left;
 }
-@media(min-width:768px){ .final-loc{grid-template-columns:1fr 1fr;} }
-.loc{background:var(--ink);padding:22px;text-align:left;}
-.loc .k{font-size:.64rem;letter-spacing:.24em;font-weight:800;color:var(--brass);margin-bottom:8px;}
-.loc h3{font-size:1.02rem;margin-bottom:4px;}
-.loc p{font-size:.84rem;color:rgba(255,255,255,.6);margin:0;}
+@media(min-width:768px){ .flow{grid-template-columns:repeat(3,1fr);} }
+.flow-i{background:var(--ink);padding:20px 18px;}
+.flow-i .n{font-size:.62rem;letter-spacing:.24em;font-weight:800;color:var(--brass);margin-bottom:9px;}
+.flow-i h3{font-size:.98rem;margin-bottom:5px;}
+.flow-i p{font-size:.84rem;color:rgba(255,255,255,.58);font-weight:300;margin:0;}
+
+/* 큰 CTA */
+.cta--xl{
+  width:100%;max-width:420px;padding:20px 28px;font-size:1.05rem;gap:11px;
+  box-shadow:0 10px 30px rgba(176,141,85,.22);
+}
+.cta--xl i{font-size:1.15rem;}
+.cta-sub{
+  margin-top:14px;font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.6;
+}
+.cta-sub b{color:rgba(255,255,255,.85);font-weight:600;}
+.final-note{
+  margin-top:30px;padding-top:18px;border-top:1px solid var(--line-d);
+  font-size:.74rem;letter-spacing:.14em;color:rgba(255,255,255,.4);
+}
 
 footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
   font-size:.72rem;text-align:center;border-top:1px solid var(--line-d);}
@@ -428,7 +446,7 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
 .bar .insta{color:#26282C;}
 .bar .insta i{font-size:1.08rem;background:-webkit-linear-gradient(#f09433,#dc2743,#bc1888);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.bar .talk{background:var(--ink);color:#fff;}
+.bar .talk{background:var(--brass);color:#fff;}
 .bar .talk i{color:var(--kakao);font-size:1.05rem;}
 
 :focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
@@ -447,7 +465,7 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
   <div class="hero-in">
     <div class="hero-eyebrow">MEN'S BROW · SONGSHOP</div>
     <h1>남자 눈썹은<br>티가 나면 실패입니다.</h1>
-    <p class="hero-sub">시술한 티 없이, 어울리는 인상을 찾아드립니다.</p>
+    <p class="hero-sub">티는 안 나게, 인상만 바뀌게 잡아드립니다.</p>
     <div class="hero-meta">
       <span>시술 경력 <b>7년+</b></span>
       <span>누적 <b>3,000건+</b></span>
@@ -467,7 +485,7 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
     <div class="rv">
       <div class="rule"><span class="k">증거</span><span class="l"></span></div>
       <h2 class="h-sec">자연스럽다는 말은 누구나 합니다.<br><em>그래서 확대해봤습니다.</em></h2>
-      <p class="lede">시술이 끝난 눈썹을 거꾸로 쓸어 올린 영상입니다. 적나라하게 보여드립니다.</p>
+      <p class="lede">시술 끝난 눈썹을 손으로 거꾸로 쓸어 올렸습니다. 가릴 것 없이 그대로 보여드립니다.</p>
 
       <div class="proof">
         <div>
@@ -479,21 +497,21 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
             <div class="proof-badge"><span class="dot"></span> 실제 시술 직후 · 무편집</div>
           </div>
           <p class="proof-cap"><i class="fas fa-circle"></i>
-            보정·필터 없이 촬영했습니다. 화면을 눌러 다시 재생할 수 있습니다.</p>
+            보정도 필터도 없습니다. 화면을 누르면 처음부터 다시 돌아갑니다.</p>
         </div>
 
         <div class="look">
           <div class="look-i">
             <h3><span>01</span>털을 들췄을 때도 자연스러운가</h3>
-            <p>면으로 색을 채워 넣은 눈썹은 털을 걷어내는 순간 부자연스러운 덩어리가 그대로 드러납니다. 결로 심은 눈썹은 걷어내도 내 눈썹처럼 자연스럽습니다.</p>
+            <p>면으로 색을 채운 눈썹은 털을 걷어내면 덩어리가 그대로 보입니다. 결로 심으면 걷어내도 원래 제 눈썹처럼 보입니다.</p>
           </div>
           <div class="look-i">
             <h3><span>02</span>심은 결이 실제 털과 같은 방향인가</h3>
-            <p>방향이 어긋나면 쓸어 올렸을 때 문신 선과 진짜 털이 어울리지 않습니다. 디테일이 모여 퀄리티를 만듭니다.</p>
+            <p>방향이 어긋나면 쓸어 올렸을 때 심은 선과 진짜 털이 따로 놉니다. 이런 게 하나씩 쌓여서 티가 납니다.</p>
           </div>
           <div class="look-i">
             <h3><span>03</span>다시 눕혔을 때 라인이 따로 남는가</h3>
-            <p>남자 눈썹은 털을 정리하지 않고 그대로 두는 경우가 많습니다. 원래 털과 심은 결이 하나로 보여야 어느 각도에서도 티가 나지 않습니다.</p>
+            <p>남자분들은 눈썹을 따로 정리하지 않고 그냥 두는 경우가 많습니다. 원래 털과 심은 결이 한 덩어리로 보여야 어느 각도에서 봐도 티가 안 납니다.</p>
           </div>
         </div>
       </div>
@@ -516,54 +534,12 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
   </div>
 </section>
 
-<!-- ════════ 3. 반론 처리 : 왜 남자 눈썹은 따로 설계해야 하는가 ════════ -->
-<section class="sec sec--paper" data-sec="3_why">
-  <div class="wrap rv">
-    <div class="rule" style="color:var(--text)"><span class="k">기준</span><span class="l"></span></div>
-    <h2 class="h-sec">“짱구 될까 봐” 못 하셨다면,<br>그 걱정이 맞습니다.</h2>
-    <p class="lede">여자 눈썹 기준을 그대로 남자 얼굴에 얹으면 반드시 티가 납니다. SONGSHOP은 남성을 위한 디자인을 다음과 같이 따로 설계합니다.</p>
-
-    <div class="spec-grid">
-      <div class="spec">
-        <div class="n">골격</div>
-        <h3>눈썹뼈가 나와 있습니다</h3>
-        <p>남성은 눈썹뼈 돌출이 커서 앉았을 때와 누웠을 때 라인이 크게 달라집니다. 누운 상태로만 그리면 일어섰을 때 위치가 틀어집니다.</p>
-        <div class="vs">앉아서 · 누워서 · 눈 뜬 상태 · 감은 상태 <b>4회 확인 후 확정</b></div>
-      </div>
-      <div class="spec">
-        <div class="n">모결</div>
-        <h3>모근이 굵고 직립입니다</h3>
-        <p>여성용 곡선 결을 그대로 심으면 어색할 수 있습니다. 남성 모결은 약간 거칠지만 조금 비워주는 느낌으로 화장기 없는 자연스러움을 설계합니다.</p>
-        <div class="vs">결을 <b>굵고 성글게</b> · 구간별로 방향을 다르게</div>
-      </div>
-      <div class="spec">
-        <div class="n">농도</div>
-        <h3>같은 색도 더 진하게 올라옵니다</h3>
-        <p>남성 피부는 두껍고 유분이 많아 동일 색소가 한 톤 더 진하게 발색됩니다. 여성 기준 농도를 쓰면 그게 바로 ‘짱구’입니다.</p>
-        <div class="vs">기준 대비 <b>한 단계 낮춰</b> 시작 · 부족하면 리터치에서 채움</div>
-      </div>
-      <div class="spec">
-        <div class="n">라인</div>
-        <h3>아치가 들어가는 순간 티가 납니다</h3>
-        <p>남성 눈썹은 곡선을 최소화하고 직선에 가까운 완만한 각도로 갑니다. 곡률은 살리되 각도는 죽이는 것이 핵심입니다.</p>
-        <div class="vs">곡선이 아니라 <b>각도로 인상</b>을 만듭니다</div>
-      </div>
-      <div class="spec">
-        <div class="n">조화</div>
-        <h3>눈썹만 보고 그리지 않습니다</h3>
-        <p>헤어 컬러, 눈꼬리, 눈썹털 굵기등의 요소로 최적의 디자인과 색상을 찾습니다. 남자 눈썹이라고 무작정 진하면 얼굴에서 그 부분만 도드라집니다.</p>
-        <div class="vs">수염 · 헤어라인과 <b>톤을 맞춰</b> 농도 결정</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ════════ 4. 증거 : 전후 ════════ -->
 <section class="sec sec--white" data-sec="4_portfolio">
   <div class="wrap rv">
     <div class="rule" style="color:var(--text)"><span class="k">결과</span><span class="l"></span></div>
     <h2 class="h-sec">직접 확인해 보세요.</h2>
-    <p class="lede">사진을 터치하면 시술 전으로 바뀝니다. 보정 없이 같은 조명·같은 각도에서 촬영했습니다.</p>
+    <p class="lede">사진을 누르면 시술 전으로 바뀝니다. 같은 조명, 같은 각도에서 찍었고 보정은 하지 않았습니다.</p>
 
     <div class="hscroll-wrap">
       <div class="hscroll">
@@ -706,9 +682,9 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
     </div>
 
     <p class="serif" style="margin-top:34px;padding-left:18px;border-left:2px solid var(--brass);font-size:1.02rem;line-height:1.85;color:rgba(255,255,255,.9);">
-      원하시는 이미지를 말로 설명하기 어려우셔도 괜찮습니다.<br>
-      “부담스럽지 않게”, “그냥 있어 보이게” 정도만 말씀해 주시면<br>
-      나머지 계산은 제가 합니다.
+      원하는 그림을 말로 설명 못 하셔도 괜찮습니다.<br>
+      '부담스럽지 않게', '그냥 좀 있어 보이게' 정도만 얘기해 주세요.<br>
+      나머지는 제가 계산합니다.
       <span style="display:block;margin-top:14px;font-size:.82rem;letter-spacing:.06em;color:rgba(255,255,255,.55);font-family:'Pretendard',sans-serif;">SONGSHOP 원장 송민성</span>
     </p>
   </div>
@@ -726,8 +702,8 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
         <img class="ba" loading="lazy" alt="남자 눈썹문신 상담" src="https://github.com/songshop-ms/songshop/blob/main/%EC%83%81%EB%8B%B4.jpg?raw=true" style="position:static;">
         <div class="step-ov">
           <div class="step-n">STEP 01</div>
-          <h3>골격 · 잔흔 확인</h3>
-          <p>눈썹뼈 높이, 좌우 비대칭, 기존 잔흔의 색과 깊이를 먼저 체크합니다.</p>
+          <h3>디자인 상담</h3>
+          <p>원하시는 이미지, 느낌이 있으시다면 이때 고객님의 이미지에 맞도록 초안을 결정합니다.(1분~ 5분 소요)</p>
         </div>
       </div>
       <div class="step">
@@ -735,7 +711,7 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
         <div class="step-ov">
           <div class="step-n">STEP 02</div>
           <h3>디자인 확정</h3>
-          <p>앉아서, 누워서, 눈 뜨고 감고 네 번 확인합니다. 확정 전까지는 지우고 다시 그립니다.</p>
+          <p>앉아서, 누워서, 눈 뜨고 감고 4번 확인 합니다. 마음에 드는 라인을 찾는 시간. (15~20분 사이 소요)</p>
         </div>
       </div>
       <div class="step">
@@ -743,51 +719,26 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
         <div class="step-ov">
           <div class="step-n">STEP 03</div>
           <h3>결 시술</h3>
-          <p>피부 손상을 최소화하는 깊이로 한 올씩. 남성 모결 방향에 맞춰 구간별로 심습니다.</p>
+          <p>무통증. 무출혈. 앞머리부터 꼬리까지 결 방향을 고객님의 털 흐름에 맞춰 심습니다. (40~50분 소요)</p>
         </div>
       </div>
     </div>
 
     <div class="promise">
-      <b>연하게 시작합니다.</b> 첫 시술은 의도적으로 기준보다 옅게 잡습니다.<br>
-      진하게 넣은 건 되돌리기 어렵지만, 옅게 넣은 건 리터치에서 채울 수 있기 때문입니다.<br>
-      그래서 <b>시술 다음 날 그대로 출근하셔도 됩니다.</b>
+      <b>첫 시술은 일부러 연하게 넣습니다.</b><br>
+      진하게 들어간 건 되돌리기 어렵고, 연하게 들어간 건 리터치 때 채우면 되니까요.<br>
+      그래서 <b>다음 날 그대로 출근하셔도 됩니다.</b>
     </div>
   </div>
 </section>
 
-<!-- ════════ 8. 확장 : 두피문신 ════════ -->
-<section class="sec sec--dark" data-sec="8_smp">
-  <div class="wrap rv">
-    <div class="rule"><span class="k">추가</span><span class="l"></span></div>
-    <div class="smp">
-      <div class="smp-img">
-        <!-- ★ 두피문신(SMP) 케이스 사진으로 교체 -->
-        <img loading="lazy" alt="남자 두피문신 SMP" src="https://raw.githubusercontent.com/songshop-ms/songshop/refs/heads/main/after4.png">
-      </div>
-      <div>
-        <h3>헤어라인도 같이 신경 쓰신다면</h3>
-        <p>눈썹과 두피는 같은 얼굴 프레임입니다. SONGSHOP은 두피문신(SMP)도 원장이 직접 진행합니다.</p>
-        <ul>
-          <li><i class="fas fa-minus"></i><span>M자 헤어라인 · 이마 라인 보정</span></li>
-          <li><i class="fas fa-minus"></i><span>정수리 빈 부분 밀도 채우기</span></li>
-          <li><i class="fas fa-minus"></i><span>모발 이식 흉터 · 수술 흉터 커버</span></li>
-          <li><i class="fas fa-minus"></i><span>눈썹과 함께 진행 시 톤을 맞춰 설계</span></li>
-        </ul>
-        <p style="margin-top:18px;font-size:.86rem;color:rgba(255,255,255,.5);">
-          두피 상태에 따라 가능 여부가 갈립니다. 카카오톡으로 사진 보내주시면 먼저 확인해 드립니다.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ════════ 9. 진단 (미세 전환) ════════ -->
 <section class="sec sec--paper" data-sec="9_diagnosis">
   <div class="wrap rv" style="max-width:700px;">
     <div class="rule" style="color:var(--text)"><span class="k">진단</span><span class="l"></span></div>
     <h2 class="h-sec">30초 인상 진단</h2>
-    <p class="lede">세 가지만 고르면 어떤 라인으로 가야 하는지 알려드립니다.</p>
+    <p class="lede">세 개만 고르면 어떤 라인으로 가야 할지 알려드립니다.</p>
 
     <div class="quiz" id="quiz">
       <div class="q-step" data-step="1">
@@ -835,8 +786,8 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
         </div>
 
         <p class="res-note">
-          <i class="fas fa-camera"></i> 이 화면을 캡처해서 정면 사진과 함께 보내주시면,<br>
-          시술 전에 어떤 라인이 나오는지 먼저 잡아드립니다.
+          <i class="fas fa-camera"></i> 이 화면 캡처해서 정면 사진이랑 같이 보내주세요.<br>
+          어떤 라인이 나올지 미리 잡아드립니다.
         </p>
 
         <a class="cta cta--brass" id="resCta" href="https://pf.kakao.com/_xhKxnhxj/chat" target="_blank" rel="noopener">
@@ -857,35 +808,35 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
     <div class="faq">
       <div class="faq-i">
         <div class="faq-q">시술 다음 날 바로 출근해도 되나요? <i class="fas fa-plus"></i></div>
-        <div class="faq-a"><p style="padding-bottom:20px;">네. 남성 시술은 처음부터 옅게 잡기 때문에 시술 직후에도 일상생활이 가능합니다. 다만 2~3일간은 약간 진해 보이는 구간이 있고, 탈각이 끝나는 7~10일 뒤 최종 농도로 자리 잡습니다.</p></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">됩니다. 처음부터 연하게 넣으니까 시술 직후에도 평소처럼 다니셔도 됩니다. 다만 2~3일은 조금 진해 보이고, 탈각이 끝나는 4~5일 뒤에 최종 색으로 자리 잡습니다.</p></div>
       </div>
       <div class="faq-i">
         <div class="faq-q">주변에서 눈썹 한 걸 알아볼까요? <i class="fas fa-plus"></i></div>
-        <div class="faq-a"><p style="padding-bottom:20px;">대부분 “뭔가 인상이 달라졌는데 뭔지 모르겠다”는 반응을 듣습니다. 곡선을 최소화하고 원래 눈썹 결 방향 그대로 채우기 때문에, 눈썹만 따로 도드라지지 않습니다.</p></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">'뭔가 달라졌는데 뭐가 달라진 건지 모르겠다'는 말을 제일 많이 듣습니다. 곡선을 줄이고 원래 결 방향 그대로 채우기 때문에 눈썹만 따로 도드라지지 않습니다.</p></div>
       </div>
       <div class="faq-i">
         <div class="faq-q">많이 아픈가요? <i class="fas fa-plus"></i></div>
-        <div class="faq-a"><p style="padding-bottom:20px;">마취 연고를 충분히 도포한 뒤 진행하며, 시술 중 자다 가시는 분들도 많습니다. 통증보다 시간이 부담이라면 미리 말씀해 주세요. 일정에 맞춰 조정합니다.</p></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">마취전문 의약품을 충분히 바르고 시작합니다. 병원에서 쓰는 일반 의약품을 그대로 사용하며 시술 중에 주무시고 가는 분도 많습니다.</p></div>
       </div>
       <div class="faq-i">
         <div class="faq-q">운동, 샤워, 면도는 어떻게 하나요? <i class="fas fa-plus"></i></div>
-        <div class="faq-a"><p style="padding-bottom:20px;">탈각 전 약 일주일간만 과격한 운동, 사우나, 긴 샤워를 피해 주시면 됩니다. 그 이후로는 운동도 면도도 평소대로 하시면 됩니다. 땀이나 세안으로 지워지지 않기 때문에, 매일 관리할 시간이 없는 분일수록 오히려 유리한 시술입니다.</p></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">탈각 전 일주일만 심한 운동이랑 사우나, 오래 하는 샤워를 피해 주세요. 그 뒤로는 운동도 면도도 평소대로 하시면 됩니다. 땀이나 세수로 지워지지 않으니까 오히려 매일 신경 쓸 시간 없는 분한테 잘 맞습니다.</p></div>
       </div>
       <div class="faq-i">
         <div class="faq-q">평생 남나요? 마음에 안 들면요? <i class="fas fa-plus"></i></div>
-        <div class="faq-a"><p style="padding-bottom:20px;">반영구입니다. 피부 타입과 관리에 따라 보통 1~2년에 걸쳐 서서히 옅어집니다. 무엇보다 디자인을 확정하기 전에는 시술을 시작하지 않으므로, 그리는 단계에서 얼마든지 수정하실 수 있습니다.</p></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">반영구라 평생 가지는 않습니다. 피부와 관리에 따라 보통 1~2년에 걸쳐 서서히 연해집니다. 무엇보다 디자인이 정해지기 전에는 시술하지 않으니, 그리는 단계에서 얼마든지 고치셔도 됩니다.</p></div>
       </div>
       <div class="faq-i">
         <div class="faq-q">예전에 한 문신 잔흔이 있는데 가능한가요? <i class="fas fa-plus"></i></div>
-        <div class="faq-a"><p style="padding-bottom:20px;">잔흔의 색상(붉은기·푸른기)과 진하기에 따라 바로 커버가 가능한 경우와 제거를 먼저 권하는 경우가 나뉩니다. 예약 전에 카카오톡이나 인스타 DM으로 사진을 보내주시면 어느 쪽인지 먼저 확인해 드립니다.</p></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">잔흔이 붉게 떴는지 푸르게 떴는지, 얼마나 진한지에 따라 바로 덮는 경우와 빼는 걸 먼저 권하는 경우로 갈립니다. 예약 전에 카톡이나 인스타 DM으로 사진 보내주시면 어느 쪽인지 먼저 봐드립니다.</p></div>
       </div>
       <div class="faq-i">
         <div class="faq-q">리터치는 꼭 받아야 하나요? <i class="fas fa-plus"></i></div>
-        <div class="faq-a"><p style="padding-bottom:20px;">권장합니다. 첫 시술은 의도적으로 옅게 넣기 때문에, 피부 재생 주기를 고려해 4~8주 사이에 리터치로 농도와 결을 채워야 완성입니다.</p></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">받으시는 게 좋습니다. 첫 시술을 일부러 연하게 넣기 때문에, 피부가 돌아오는 4~8주 사이에 리터치로 색과 결을 채워야 완성됩니다.</p></div>
       </div>
       <div class="faq-i">
         <div class="faq-q">잠실과 강릉, 어디서 받을 수 있나요? <i class="fas fa-plus"></i></div>
-        <div class="faq-a"><p style="padding-bottom:20px;">두 곳 모두 원장이 직접 시술하며 동일한 기준으로 진행합니다. 예약 시 편하신 지점을 말씀해 주세요.</p></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">두 곳 다 원장이 직접 하고 기준도 같습니다. 예약하실 때 편한 쪽으로 말씀해 주세요.</p></div>
       </div>
     </div>
   </div>
@@ -895,23 +846,32 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
 <section class="sec sec--dark" data-sec="11_cta">
   <div class="wrap rv final">
     <h2>사진 한 장만 보내주세요.</h2>
-    <p>정면 사진을 보내주시면 가능 여부와 방향을 먼저 알려드립니다.<br>예약 전 상담만 하셔도 됩니다.</p>
-    <a class="cta cta--brass" id="finalCta" href="https://pf.kakao.com/_xhKxnhxj/chat" target="_blank" rel="noopener">
-      <i class="fas fa-comment"></i> 카카오톡으로 1:1 상담
-    </a>
+    <p class="lede">정면 사진 하나면 됩니다. 원장이 직접 보고 답합니다.<br>예약부터 잡지 않으셔도 괜찮습니다.</p>
 
-    <div class="final-loc">
-      <div class="loc">
-        <div class="k">잠실 본점</div>
-        <h3>서울 송파구 백제고분로7길 24-19</h3>
-        <p>잠실 · 송파 일대 · 예약제 운영</p>
+    <div class="flow">
+      <div class="flow-i">
+        <div class="n">보내실 것</div>
+        <h3>정면 사진 한 장</h3>
+        <p>화장도 손질도 하지 마시고 지금 눈썹 그대로 찍어 보내주세요.</p>
       </div>
-      <div class="loc">
-        <div class="k">강릉 매장</div>
-        <h3>강원특별자치도 강릉시 토성로 118</h3>
-        <p>강릉 · 동해권 · 예약제 운영</p>
+      <div class="flow-i">
+        <div class="n">확인하는 것</div>
+        <h3>골격 · 잔흔 · 되는지 여부</h3>
+        <p>잔흔이 있으면 바로 덮을지 빼는 게 먼저인지 여기서 갈립니다.</p>
+      </div>
+      <div class="flow-i">
+        <div class="n">받으실 것</div>
+        <h3>어떤 라인이 나올지</h3>
+        <p>방향이랑 걸리는 시간까지 알려드립니다. 100% 무료 컨설팅 입니다.</p>
       </div>
     </div>
+
+    <a class="cta cta--brass cta--xl" id="finalCta" href="https://pf.kakao.com/_xhKxnhxj/chat" target="_blank" rel="noopener">
+      <i class="fas fa-comment"></i> 카카오톡으로 사진 보내기
+    </a>
+    <p class="cta-sub"><b>어울리는 인상을 찾아드리는</b> 전문가에게 맡겨주세요.</p>
+
+    <div class="final-note">잠실 본점 · 강릉 매장 · 일대일 예약제</div>
   </div>
 </section>
 
@@ -925,7 +885,7 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
     <i class="fab fa-instagram"></i> 시술 사진
   </a>
   <a class="talk" href="https://pf.kakao.com/_xhKxnhxj/chat" target="_blank" rel="noopener" id="floatCta">
-    <i class="fas fa-comment"></i> 상담 문의
+    <i class="fas fa-comment"></i> 사진 보내고 상담
   </a>
 </div>
 
@@ -1038,40 +998,40 @@ document.addEventListener('DOMContentLoaded', function () {
     switch (ans[3]) {
       case '또렷':
         title = '소프트 앵글형';
-        desc = '눈썹 산에 완만한 각을 넣어 눈매를 또렷하게 잡습니다.<br>곡선은 죽이고 각도만 살려, 강해 보이지 않으면서 인상이 분명해집니다.';
+        desc = '눈썹 산에 각을 살짝 넣어 눈매를 또렷하게 잡습니다.<br>곡선은 죽이고 각도만 살리기 때문에 세 보이지 않으면서 인상이 분명해집니다.';
         break;
       case '부드럽':
         title = '라운드 내추럴형';
-        desc = '각을 거의 없애고 완만한 흐름으로 갑니다.<br>인상이 세 보이는 분에게 가장 많이 나가는 라인입니다.';
+        desc = '각을 거의 없애고 완만하게 흘립니다.<br>인상이 세 보인다는 말을 자주 듣는 분들이 제일 많이 고르는 라인입니다.';
         break;
       case '티없이':
         title = '미니멀 결감형';
-        desc = '라인을 새로 만들지 않고 비어 있는 구간만 결로 채웁니다.<br>가장 옅게 들어가는 방식이라, 본인 말고는 알아채기 어렵습니다.';
+        desc = '라인을 새로 만들지 않고 빈 구간만 결로 채웁니다.<br>제일 연하게 들어가서 본인 말고는 눈치채기 어렵습니다.';
         break;
       default:
         title = '스트레이트 내추럴형';
-        desc = '직선에 가까운 표준 비율로, 신뢰감이 필요한 자리에서 가장 무난합니다.<br>남성 시술에서 가장 많이 선택되는 기본형입니다.';
+        desc = '직선에 가까운 기본 비율입니다.<br>면접이나 미팅처럼 사람 앞에 서는 자리에서 제일 무난하고, 남자분들이 가장 많이 고릅니다.';
     }
 
     if (ans[1] === '잔흔') {
       title = '잔흔 리셋 커버형';
-      desc = '남아 있는 잔흔의 색부터 정리한 뒤 새 라인을 얹습니다.<br>잔흔 상태에 따라 커버로 갈지 제거를 먼저 할지 갈리므로, 사진 확인이 꼭 필요합니다.';
+      desc = '남은 잔흔의 색부터 정리하고 새 라인을 얹습니다.<br>바로 덮을지 빼는 게 먼저인지는 상태를 봐야 갈리니까, 사진을 꼭 먼저 보내주세요.';
     }
 
     /* Q2 — 지금 인상을 어떻게 되돌릴지 */
     var vibeFix = {
-      '피곤':  '지금 피곤해 보이는 건 꼬리가 내려가 있기 때문입니다. 꼬리 각도부터 올립니다.',
-      '세보임': '세 보이는 원인은 대개 눈썹 앞머리입니다. 앞쪽 농도를 낮추고 간격을 넓혀 인상을 풉니다.',
-      '순함':  '눈썹 산 위치를 바깥쪽으로 옮겨, 순한 인상에 힘을 넣습니다.',
-      '흐릿':  '라인을 새로 긋지 않고 밀도만 올려서, 티 없이 존재감만 살립니다.'
+      '피곤':  '피곤해 보이는 건 대개 꼬리가 내려가 있어서입니다. 꼬리 각도부터 올립니다.',
+      '세보임': '세 보이는 건 대개 눈썹 앞머리 탓입니다. 앞쪽을 연하게 하고 사이를 넓혀 인상을 풉니다.',
+      '순함':  '눈썹 산을 바깥쪽으로 옮겨서 순한 인상에 힘을 넣습니다.',
+      '흐릿':  '라인을 새로 긋지 않고 숱만 채웁니다. 티는 안 나고 존재감만 올라갑니다.'
     };
     if (vibeFix[ans[2]]) desc += '<br><span class="hl">' + vibeFix[ans[2]] + '</span>';
 
     /* Q1 — 구조적으로 손봐야 할 부분 */
     var partFix = {
-      '짝눈': '좌우 비대칭은 앞머리 높이부터 다시 잡습니다.',
-      '꼬리': '비어 있는 꼬리를 연장해 눈매를 올립니다.',
-      '숱':   '남아 있는 결의 방향을 따라 빈 구간만 채웁니다.'
+      '짝눈': '좌우가 다른 건 앞머리 높이부터 다시 잡습니다.',
+      '꼬리': '빈 꼬리를 이어 붙여 눈매를 올립니다.',
+      '숱':   '남아 있는 결 방향을 따라가면서 빈 자리만 채웁니다.'
     };
     if (partFix[ans[1]]) desc += '<br><span class="hl">' + partFix[ans[1]] + '</span>';
 
@@ -1323,14 +1283,14 @@ document.addEventListener('DOMContentLoaded', function () {
   "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
-    {"@type":"Question","name":"남자 눈썹문신 후 다음 날 바로 출근해도 되나요?","acceptedAnswer":{"@type":"Answer","text":"네. 남성 시술은 처음부터 옅게 잡기 때문에 시술 직후에도 일상생활이 가능합니다. 2~3일간 약간 진해 보이는 구간이 있고, 탈각이 끝나는 7~10일 뒤 최종 농도로 자리 잡습니다."}},
-    {"@type":"Question","name":"주변에서 눈썹 한 것을 알아볼까요?","acceptedAnswer":{"@type":"Answer","text":"곡선을 최소화하고 원래 눈썹 결 방향 그대로 채우기 때문에 눈썹만 따로 도드라지지 않습니다. 인상이 달라진 것은 느끼지만 시술 여부는 알아보기 어렵습니다."}},
-    {"@type":"Question","name":"남자 눈썹문신은 많이 아픈가요?","acceptedAnswer":{"@type":"Answer","text":"마취 연고를 충분히 도포한 뒤 진행하며 시술 중 주무시는 분들도 많습니다."}},
-    {"@type":"Question","name":"눈썹문신 후 운동, 샤워, 면도는 어떻게 하나요?","acceptedAnswer":{"@type":"Answer","text":"탈각 전 약 일주일간 과격한 운동과 사우나, 긴 샤워를 피해 주시면 됩니다. 이후에는 운동과 면도 모두 평소대로 하시면 됩니다. 땀이나 세안으로 지워지지 않아 매일 관리할 시간이 없는 분에게 유리합니다."}},
-    {"@type":"Question","name":"눈썹문신은 평생 남나요?","acceptedAnswer":{"@type":"Answer","text":"반영구입니다. 피부 타입과 관리에 따라 보통 1~2년에 걸쳐 서서히 옅어집니다. 디자인 확정 전에는 시술을 시작하지 않아 그리는 단계에서 수정이 가능합니다."}},
-    {"@type":"Question","name":"기존 문신 잔흔이 있는데 가능한가요?","acceptedAnswer":{"@type":"Answer","text":"잔흔의 색상과 진하기에 따라 커버가 가능한 경우와 제거를 먼저 권하는 경우로 나뉩니다. 사진을 보내주시면 먼저 확인해 드립니다."}},
-    {"@type":"Question","name":"리터치는 꼭 받아야 하나요?","acceptedAnswer":{"@type":"Answer","text":"권장합니다. 첫 시술은 의도적으로 옅게 넣기 때문에 4주에서 8주 사이 리터치로 농도와 결을 채워야 완성입니다."}},
-    {"@type":"Question","name":"잠실과 강릉 중 어디서 받을 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"두 곳 모두 원장이 직접 시술하며 동일한 기준으로 진행합니다."}}
+    {"@type":"Question","name":"남자 눈썹문신 후 다음 날 바로 출근해도 되나요?","acceptedAnswer":{"@type":"Answer","text":"됩니다. 처음부터 연하게 넣으니까 시술 직후에도 평소처럼 다니셔도 됩니다. 2~3일은 조금 진해 보이고, 탈각이 끝나는 7~10일 뒤에 최종 색으로 자리 잡습니다."}},
+    {"@type":"Question","name":"주변에서 눈썹 한 것을 알아볼까요?","acceptedAnswer":{"@type":"Answer","text":"곡선을 줄이고 원래 결 방향 그대로 채우기 때문에 눈썹만 따로 도드라지지 않습니다. 인상이 달라진 건 느끼지만 시술한 건 잘 모릅니다."}},
+    {"@type":"Question","name":"남자 눈썹문신은 많이 아픈가요?","acceptedAnswer":{"@type":"Answer","text":"마취 연고를 충분히 바르고 시작합니다. 시술 중에 주무시고 가는 분도 많습니다."}},
+    {"@type":"Question","name":"눈썹문신 후 운동, 샤워, 면도는 어떻게 하나요?","acceptedAnswer":{"@type":"Answer","text":"탈각 전 일주일만 심한 운동과 사우나, 오래 하는 샤워를 피해 주세요. 그 뒤로는 운동도 면도도 평소대로 하시면 됩니다. 땀이나 세수로 지워지지 않아 매일 신경 쓸 시간 없는 분에게 잘 맞습니다."}},
+    {"@type":"Question","name":"눈썹문신은 평생 남나요?","acceptedAnswer":{"@type":"Answer","text":"반영구라 평생 가지는 않습니다. 피부와 관리에 따라 보통 1~2년에 걸쳐 서서히 연해집니다. 디자인이 정해지기 전에는 바늘을 대지 않아서 그리는 단계에서 얼마든지 고치셔도 됩니다."}},
+    {"@type":"Question","name":"기존 문신 잔흔이 있는데 가능한가요?","acceptedAnswer":{"@type":"Answer","text":"잔흔이 붉게 떴는지 푸르게 떴는지, 얼마나 진한지에 따라 바로 덮는 경우와 빼는 걸 먼저 권하는 경우로 갈립니다. 사진 보내주시면 먼저 봐드립니다."}},
+    {"@type":"Question","name":"리터치는 꼭 받아야 하나요?","acceptedAnswer":{"@type":"Answer","text":"받으시는 게 좋습니다. 첫 시술을 일부러 연하게 넣기 때문에 4주에서 8주 사이에 리터치로 색과 결을 채워야 완성됩니다."}},
+    {"@type":"Question","name":"잠실과 강릉 중 어디서 받을 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"두 곳 다 원장이 직접 하고 기준도 같습니다."}}
   ]
 }
 </script>
