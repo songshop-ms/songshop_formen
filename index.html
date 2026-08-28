@@ -211,19 +211,6 @@ h1,h2,h3{letter-spacing:-.035em;line-height:1.28;font-weight:800;}
   display:flex;gap:10px;align-items:baseline;}
 .checks li i{color:var(--brass);font-size:.6rem;}
 
-/* ══════ 왜 다른가 (설계 4항목) ══════ */
-.spec-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-l);border:1px solid var(--line-l);margin-top:30px;}
-@media(min-width:768px){ .spec-grid{grid-template-columns:1fr 1fr;} }
-.spec{background:var(--paper-2);padding:28px 24px;}
-.spec .n{font-size:.64rem;letter-spacing:.22em;font-weight:800;color:var(--brass);}
-.spec h3{font-size:1.08rem;margin:10px 0 8px;}
-.spec p{font-size:.9rem;color:var(--text-sub);}
-.spec .vs{
-  margin-top:14px;padding-top:12px;border-top:1px dashed var(--line-l);
-  font-size:.8rem;color:#8A8D93;
-}
-.spec .vs b{color:var(--text);font-weight:700;}
-
 /* ══════ 포트폴리오 ══════ */
 .hscroll-wrap{margin:0 -22px;width:calc(100% + 44px);}
 .hscroll{
@@ -339,16 +326,6 @@ h1,h2,h3{letter-spacing:-.035em;line-height:1.28;font-weight:800;}
   font-size:.95rem;line-height:1.75;
 }
 .promise b{color:var(--brass);}
-
-/* ══════ 두피(SMP) ══════ */
-.smp{display:grid;grid-template-columns:1fr;gap:22px;align-items:center;}
-@media(min-width:768px){ .smp{grid-template-columns:1fr 1fr;gap:40px;} }
-.smp-img{aspect-ratio:4/3;overflow:hidden;background:#222;}
-.smp h3{font-size:1.3rem;margin-bottom:12px;}
-.smp p{font-size:.94rem;color:rgba(255,255,255,.7);margin-bottom:16px;}
-.smp ul{list-style:none;font-size:.9rem;}
-.smp li{padding:9px 0;border-bottom:1px solid var(--line-d);display:flex;gap:10px;}
-.smp li i{color:var(--brass);font-size:.7rem;padding-top:6px;}
 
 /* ══════ 진단 ══════ */
 .quiz{border:1px solid var(--line-l);background:#fff;padding:34px 22px;margin-top:26px;}
@@ -518,7 +495,7 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
 
       <div class="proof-close">
         눈썹문신이 잘됐는지는 <b>디테일이 결정짓습니다.</b><br>
-        자신있게 적나라한 결과물을 오픈하는 곳에서 하셔야 합니다.
+        자신있게 결과물을 오픈할 수 있는 곳에서 하셔야 합니다.
       </div>
 
       <div class="checks">
@@ -703,7 +680,7 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
         <div class="step-ov">
           <div class="step-n">STEP 01</div>
           <h3>디자인 상담</h3>
-          <p>원하시는 이미지, 느낌이 있으시다면 이때 고객님의 이미지에 맞도록 초안을 결정합니다.(1분~ 5분 소요)</p>
+          <p>원하시는 이미지, 느낌이 있으시다면 이때 고객님의 이미지에 맞도록 초안을 결정합니다.</p>
         </div>
       </div>
       <div class="step">
@@ -711,7 +688,7 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
         <div class="step-ov">
           <div class="step-n">STEP 02</div>
           <h3>디자인 확정</h3>
-          <p>앉아서, 누워서, 눈 뜨고 감고 4번 확인 합니다. 마음에 드는 라인을 찾는 시간. (15~20분 사이 소요)</p>
+          <p>앉아서, 누워서, 눈 뜨고 감고 4번 확인 합니다. 마음에 드는 라인을 거울을 보여드리며 찾아드립니다.</p>
         </div>
       </div>
       <div class="step">
@@ -719,7 +696,7 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
         <div class="step-ov">
           <div class="step-n">STEP 03</div>
           <h3>결 시술</h3>
-          <p>무통증. 무출혈. 앞머리부터 꼬리까지 결 방향을 고객님의 털 흐름에 맞춰 심습니다. (40~50분 소요)</p>
+          <p>통증 없이 앞머리부터 꼬리까지 결 방향을 고객님의 털 흐름에 맞춰 심습니다.</p>
         </div>
       </div>
     </div>
@@ -731,7 +708,6 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
     </div>
   </div>
 </section>
-
 
 <!-- ════════ 9. 진단 (미세 전환) ════════ -->
 <section class="sec sec--paper" data-sec="9_diagnosis">
@@ -808,7 +784,7 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
     <div class="faq">
       <div class="faq-i">
         <div class="faq-q">시술 다음 날 바로 출근해도 되나요? <i class="fas fa-plus"></i></div>
-        <div class="faq-a"><p style="padding-bottom:20px;">됩니다. 처음부터 연하게 넣으니까 시술 직후에도 평소처럼 다니셔도 됩니다. 다만 2~3일은 조금 진해 보이고, 탈각이 끝나는 4~5일 뒤에 최종 색으로 자리 잡습니다.</p></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">됩니다. 처음부터 연하게 넣으니까 시술 직후에도 평소처럼 다니셔도 됩니다. 2~3일은 조금 진해 보이다가 탈각이 끝나는 4~5일쯤 최종 색으로 자리 잡습니다. 색이 자리 잡는 것과 별개로 운동과 사우나는 일주일간 피해 주세요.</p></div>
       </div>
       <div class="faq-i">
         <div class="faq-q">주변에서 눈썹 한 걸 알아볼까요? <i class="fas fa-plus"></i></div>
@@ -816,11 +792,11 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
       </div>
       <div class="faq-i">
         <div class="faq-q">많이 아픈가요? <i class="fas fa-plus"></i></div>
-        <div class="faq-a"><p style="padding-bottom:20px;">마취전문 의약품을 충분히 바르고 시작합니다. 병원에서 쓰는 일반 의약품을 그대로 사용하며 시술 중에 주무시고 가는 분도 많습니다.</p></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">마취 연고를 충분히 바르고 시작합니다. 시술 중에 주무시고 가는 분도 많습니다. 통증에 특히 예민하신 편이면 미리 말씀해 주세요. 속도와 순서를 맞춰서 진행합니다.</p></div>
       </div>
       <div class="faq-i">
         <div class="faq-q">운동, 샤워, 면도는 어떻게 하나요? <i class="fas fa-plus"></i></div>
-        <div class="faq-a"><p style="padding-bottom:20px;">탈각 전 일주일만 심한 운동이랑 사우나, 오래 하는 샤워를 피해 주세요. 그 뒤로는 운동도 면도도 평소대로 하시면 됩니다. 땀이나 세수로 지워지지 않으니까 오히려 매일 신경 쓸 시간 없는 분한테 잘 맞습니다.</p></div>
+        <div class="faq-a"><p style="padding-bottom:20px;">시술 후 일주일간은 심한 운동이랑 사우나, 오래 하는 샤워를 피해 주세요. 그 뒤로는 운동도 면도도 평소대로 하시면 됩니다. 땀이나 세수로 지워지지 않으니까 오히려 매일 신경 쓸 시간 없는 분한테 잘 맞습니다.</p></div>
       </div>
       <div class="faq-i">
         <div class="faq-q">평생 남나요? 마음에 안 들면요? <i class="fas fa-plus"></i></div>
@@ -862,7 +838,7 @@ footer{padding:34px 0 26px;background:var(--ink);color:rgba(255,255,255,.35);
       <div class="flow-i">
         <div class="n">받으실 것</div>
         <h3>어떤 라인이 나올지</h3>
-        <p>방향이랑 걸리는 시간까지 알려드립니다. 100% 무료 컨설팅 입니다.</p>
+        <p>방향이랑 걸리는 시간까지 알려드립니다. 100% 무료 컨설팅입니다.</p>
       </div>
     </div>
 
@@ -1283,11 +1259,11 @@ document.addEventListener('DOMContentLoaded', function () {
   "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
-    {"@type":"Question","name":"남자 눈썹문신 후 다음 날 바로 출근해도 되나요?","acceptedAnswer":{"@type":"Answer","text":"됩니다. 처음부터 연하게 넣으니까 시술 직후에도 평소처럼 다니셔도 됩니다. 2~3일은 조금 진해 보이고, 탈각이 끝나는 7~10일 뒤에 최종 색으로 자리 잡습니다."}},
+    {"@type":"Question","name":"남자 눈썹문신 후 다음 날 바로 출근해도 되나요?","acceptedAnswer":{"@type":"Answer","text":"됩니다. 처음부터 연하게 넣으니까 시술 직후에도 평소처럼 다니셔도 됩니다. 2~3일은 조금 진해 보이다가 탈각이 끝나는 4~5일쯤 최종 색으로 자리 잡습니다. 운동과 사우나는 일주일간 피해 주세요."}},
     {"@type":"Question","name":"주변에서 눈썹 한 것을 알아볼까요?","acceptedAnswer":{"@type":"Answer","text":"곡선을 줄이고 원래 결 방향 그대로 채우기 때문에 눈썹만 따로 도드라지지 않습니다. 인상이 달라진 건 느끼지만 시술한 건 잘 모릅니다."}},
-    {"@type":"Question","name":"남자 눈썹문신은 많이 아픈가요?","acceptedAnswer":{"@type":"Answer","text":"마취 연고를 충분히 바르고 시작합니다. 시술 중에 주무시고 가는 분도 많습니다."}},
-    {"@type":"Question","name":"눈썹문신 후 운동, 샤워, 면도는 어떻게 하나요?","acceptedAnswer":{"@type":"Answer","text":"탈각 전 일주일만 심한 운동과 사우나, 오래 하는 샤워를 피해 주세요. 그 뒤로는 운동도 면도도 평소대로 하시면 됩니다. 땀이나 세수로 지워지지 않아 매일 신경 쓸 시간 없는 분에게 잘 맞습니다."}},
-    {"@type":"Question","name":"눈썹문신은 평생 남나요?","acceptedAnswer":{"@type":"Answer","text":"반영구라 평생 가지는 않습니다. 피부와 관리에 따라 보통 1~2년에 걸쳐 서서히 연해집니다. 디자인이 정해지기 전에는 바늘을 대지 않아서 그리는 단계에서 얼마든지 고치셔도 됩니다."}},
+    {"@type":"Question","name":"남자 눈썹문신은 많이 아픈가요?","acceptedAnswer":{"@type":"Answer","text":"마취 연고를 충분히 바르고 시작합니다. 시술 중에 주무시고 가는 분도 많습니다. 통증에 특히 예민하신 편이면 미리 말씀해 주세요."}},
+    {"@type":"Question","name":"눈썹문신 후 운동, 샤워, 면도는 어떻게 하나요?","acceptedAnswer":{"@type":"Answer","text":"시술 후 일주일간은 심한 운동과 사우나, 오래 하는 샤워를 피해 주세요. 그 뒤로는 운동도 면도도 평소대로 하시면 됩니다. 땀이나 세수로 지워지지 않아 매일 신경 쓸 시간 없는 분에게 잘 맞습니다."}},
+    {"@type":"Question","name":"눈썹문신은 평생 남나요?","acceptedAnswer":{"@type":"Answer","text":"반영구라 평생 가지는 않습니다. 피부와 관리에 따라 보통 1~2년에 걸쳐 서서히 연해집니다. 디자인이 정해지기 전에는 시술하지 않아서 그리는 단계에서 얼마든지 고치셔도 됩니다."}},
     {"@type":"Question","name":"기존 문신 잔흔이 있는데 가능한가요?","acceptedAnswer":{"@type":"Answer","text":"잔흔이 붉게 떴는지 푸르게 떴는지, 얼마나 진한지에 따라 바로 덮는 경우와 빼는 걸 먼저 권하는 경우로 갈립니다. 사진 보내주시면 먼저 봐드립니다."}},
     {"@type":"Question","name":"리터치는 꼭 받아야 하나요?","acceptedAnswer":{"@type":"Answer","text":"받으시는 게 좋습니다. 첫 시술을 일부러 연하게 넣기 때문에 4주에서 8주 사이에 리터치로 색과 결을 채워야 완성됩니다."}},
     {"@type":"Question","name":"잠실과 강릉 중 어디서 받을 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"두 곳 다 원장이 직접 하고 기준도 같습니다."}}
